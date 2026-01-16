@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celegance 2026 | Future Reimagined</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lux: {
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            dark: '#050505',
+                            charcoal: '#0a0a0a',
+                            purple: '#1a0b2e',
+                            glass: 'rgba(255, 255, 255, 0.03)'
+                        }
+                    },
+                    fontFamily: {
+                        display: ['Cinzel', 'serif'],
+                        body: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-inner-spin-button{
+            display: none;
+        }
+        /* Hide Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+
+        /* Smooth Reveal */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 1. FIXED VIDEO BG */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        /* 2. FIXED HERO CONTENT (Stays visible while video scrubs) */
+        #hero-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 10;
+            pointer-events: none; /* Let clicks pass through to scroll */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        /* Enable clicking on buttons inside the fixed hero */
+        #hero-fixed a, #hero-fixed button {
+            pointer-events: auto; 
+        }
+
+        /* 3. CONTENT BODY (Sits below the scrub space) */
+        #content-body {
+            position: relative;
+            z-index: 30;
+            background: #050505; 
+        }
+
+        /* 4. CURTAIN (The Black Screen) */
+        #curtain {
+            position: relative; /* It scrolls naturally */
+            z-index: 50; /* Covers Video (0) and Hero (10) and Navbar (40) */
+            height: 100vh;
+            width: 100%;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="bg-black text-white font-body antialiased overflow-x-hidden selection:bg-lux-gold selection:text-black">
+    <div id="toast-container" class="fixed top-24 right-6 z-[100] flex flex-col gap-4 pointer-events-none"></div>
+
+    <video muted playsinline class="video-background opacity-100">
+        <source src="./src/web-smooth-2.mp4" type="video/mp4" media="(min-width: 769px)">
+        <source src="./src/cele-mobile-smooth.mp4" type="video/mp4" media="(max-width: 768px)">
+    </video>
+
+    <div id="hero-fixed">
+        <!-- <div class="text-center px-4 max-w-5xl mx-auto -mt-20">
+            <p class="reveal delay-100 text-lux-gold text-sm md:text-base tracking-[0.4em] mb-4 uppercase">C.V. Raman Global University Presents</p>
+            <h1 class="reveal delay-200 font-display text-6xl md:text-9xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-500">
+                CELEGANCE
+            </h1>
+        </div> -->
+
+        <div class="absolute bottom-24 left-0 w-full text-center px-4">
+            <div class="reveal delay-300 flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+                <div class="h-[1px] w-12 bg-lux-gold hidden md:block"></div>
+                <p class="text-xl md:text-2xl font-light tracking-wide text-white">Feb 06 — 07, 2026</p>
+                <div class="h-[1px] w-12 bg-lux-gold hidden md:block"></div>
+            </div>
+
+            <div class="reveal delay-500">
+                <a href="#register" class="group relative px-8 py-4 bg-black/40 backdrop-blur-sm border border-white/20 overflow-hidden rounded-full inline-block">
+                    <div class="absolute inset-0 w-0 bg-lux-gold transition-all duration-[250ms] ease-out group-hover:w-full opacity-10"></div>
+                    <span class="relative text-sm uppercase tracking-widest font-bold text-white group-hover:text-lux-gold transition-colors">Become a Sponsor</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </div>
+
+    <div id="loader" class="fixed inset-0 z-[100] bg-black flex items-center justify-center transition-opacity duration-700">
+        <div class="text-center">
+            <h1 class="font-display text-4xl md:text-6xl text-lux-gold tracking-[0.5em] uppercase animate-pulse">Celegance</h1>
+            <p class="text-xs text-gray-500 mt-4 tracking-widest">LOADING EXPERIENCE</p>
+        </div>
+    </div>
+
+    <section id="curtain">
+        <div class="text-center animate-pulse">
+            <p class="text-gray-400 text-sm tracking-[0.5em] uppercase mb-4"> -- THE WAIT ENDS --</p>
+            <h2 class="text-white font-display text-3xl md:text-5xl tracking-widest">SCROLL TO REVEAL</h2>
+            <div class="mt-8">
+                <svg class="w-6 h-6 text-lux-gold mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+        </div>
+    </section>
+
+    <div id="video-scrub-space" style="height: 350vh;"></div>
+
+    <div id="content-body">
+        
+        <nav id="navbar" class="fixed top-0 w-full z-40 transition-all duration-300 py-6">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <a href="#" class="block">
+                    <img src="./src/logo.png" alt="Celegance Logo" class="h-10 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                </a>
+
+                <div class="hidden md:flex items-center gap-12 glass-panel px-8 py-3 rounded-full">
+                    <a href="#about" class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">About</a>
+                    <a href="#events" class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">Events</a>
+                    <a href="#schedule" class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">Schedule</a>
+                    <a href="#register" class="bg-lux-gold text-black px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide hover:bg-white hover:scale-105 transition-all">Register</a>
+                </div>
+
+                <button id="menuBtn" class="md:hidden flex flex-col gap-1.5 group">
+                    <span class="w-8 h-[2px] bg-white transition-transform group-hover:bg-lux-gold"></span>
+                    <span class="w-6 h-[2px] bg-white ml-auto transition-transform group-hover:w-8 group-hover:bg-lux-gold"></span>
+                    <span class="w-8 h-[2px] bg-white transition-transform group-hover:bg-lux-gold"></span>
+                </button>
+            </div>
+        </nav>
+
+        <div id="mobileMenu" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
+            <div class="flex flex-col gap-8 text-center">
+                <a href="#about" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">About</a>
+                <a href="#events" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Events</a>
+                <a href="#schedule" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Schedule</a>
+                <a href="#register" class="mobile-link text-3xl font-display text-lux-gold">Register</a>
+            </div>
+        </div>
+
+        <section id="about" class="py-24 md:py-32 relative">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="font-display text-5xl md:text-7xl mb-8 leading-tight">
+                        Techno <br><span class="text-lux-gold italic">Cultural</span><br>Fusion.
+                    </h2>
+                    <div class="h-1 w-24 bg-gradient-to-r from-lux-gold to-transparent mb-8"></div>
+                </div>
+                <div class="reveal glass-panel p-8 md:p-12 rounded-2xl relative">
+                    <p class="text-lg text-gray-300 leading-relaxed mb-6 font-light">
+                        <span class="text-4xl text-lux-gold font-display mr-2">C</span>elegance 2026 isn't just a festival; it's a paradigm shift. Building on a legacy of excellence at C.V. Raman Global University, we are blending high-stakes robotics with electrifying arts.
+                    </p>
+                    <p class="text-lg text-gray-300 leading-relaxed font-light">
+                        From coding marathons to the prestigious "Battle of Bands", we invite you to witness the convergence of future-ready talent and creative discovery.
+                    </p>
+                    <div class="absolute -top-6 -right-6 text-9xl text-white/5 font-display">”</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="events" class="py-24 relative">
+            <div class="container mx-auto px-6 mb-16">
+                <h2 class="reveal font-display text-4xl md:text-6xl text-center">Signature <span class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white">Events</span></h2>
+            </div>
+
+            <div id="eventsContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-8 px-4 md:px-6 pb-24 container mx-auto"></div>
+        </section>
+
+        <section id="schedule" class="py-24 container mx-auto px-6">
+            <h2 class="reveal font-display text-center text-4xl md:text-6xl mb-16">The Timeline</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 md:gap-16 max-w-5xl mx-auto">
+                <div class="reveal glass-panel rounded-xl p-8 border-t-4 border-t-lux-gold">
+                    <h3 class="text-3xl font-display mb-2 text-white">Day 01</h3>
+                    <p class="text-gray-400 mb-8">February 06, 2026</p>
+                    <div class="space-y-8 relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-[1px] before:bg-white/10">
+                        <div class="pl-8 relative">
+                            <span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-lux-gold shadow-[0_0_10px_#D4AF37]"></span>
+                            <span class="text-lux-gold font-bold text-sm block mb-1">10:00 AM</span>
+                            <h4 class="text-xl font-bold">Grand Opening Ceremony</h4>
+                            <p class="text-sm text-gray-500 mt-1">Main Auditorium</p>
+                        </div>
+                        <div class="pl-8 relative">
+                            <span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span>
+                            <span class="text-gray-400 font-bold text-sm block mb-1">02:00 PM</span>
+                            <h4 class="text-xl font-bold">Hackathon Kickoff</h4>
+                            <p class="text-sm text-gray-500 mt-1">Tech Park</p>
+                        </div>
+                        <div class="pl-8 relative">
+                            <span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span>
+                            <span class="text-gray-400 font-bold text-sm block mb-1">06:00 PM</span>
+                            <h4 class="text-xl font-bold">Cultural Night</h4>
+                            <p class="text-sm text-gray-500 mt-1">Open Air Theatre</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal delay-200 glass-panel rounded-xl p-8 border-t-4 border-t-purple-500">
+                    <h3 class="text-3xl font-display mb-2 text-white">Day 02</h3>
+                    <p class="text-gray-400 mb-8">February 07, 2026</p>
+                    <div class="space-y-8 relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-[1px] before:bg-white/10">
+                        <div class="pl-8 relative">
+                            <span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-purple-500"></span>
+                            <span class="text-purple-400 font-bold text-sm block mb-1">10:00 AM</span>
+                            <h4 class="text-xl font-bold">Robotics Finals</h4>
+                            <p class="text-sm text-gray-500 mt-1">Central Arena</p>
+                        </div>
+                        <div class="pl-8 relative">
+                            <span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span>
+                            <span class="text-gray-400 font-bold text-sm block mb-1">04:00 PM</span>
+                            <h4 class="text-xl font-bold">Fashion Show</h4>
+                            <p class="text-sm text-gray-500 mt-1">Main Stage</p>
+                        </div>
+                        <div class="pl-8 relative">
+                            <span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-lux-gold shadow-[0_0_10px_#D4AF37]"></span>
+                            <span class="text-lux-gold font-bold text-sm block mb-1">08:00 PM</span>
+                            <h4 class="text-xl font-bold">Celebrity Night</h4>
+                            <p class="text-sm text-gray-500 mt-1">Stadium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="register" class="py-24 relative">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="reveal glass-panel max-w-3xl mx-auto rounded-3xl p-8 md:p-12 text-center border border-white/10">
+                    <h2 class="font-display text-4xl mb-4">Partner With Us</h2>
+                    <p class="text-gray-400 mb-8">Contact to become a Sponsor</p>
+                    
+                    <form id="partnerForm" class="space-y-4 text-left">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input id="companyName" type="text" placeholder="Company Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500">
+                            
+                            <input id="email" type="email" placeholder="Email Address" class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500">
+                        </div>
+
+                        <input id="mobileno" type="number" placeholder="Mobile Number" class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500 appearance-none">
+
+                        <textarea id="message" rows="4" placeholder="Your Message" class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500 resize-none"></textarea>
+
+                        <button type="button" onclick="validateAndSubmit()" class="w-full bg-gradient-to-r from-lux-gold to-[#F3E5AB] text-black font-bold uppercase tracking-widest py-4 rounded-lg hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform active:scale-95">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+
+                <footer class="mt-24 text-center border-t border-white/5 pt-12 glass-panel rounded-t-xl">
+                    <div class="flex justify-center items-center gap-2 mb-4">
+                         <span class="font-display text-xl font-bold">CGU</span>
+                    </div>
+                    <p class="text-gray-300 text-sm">© 2026 Celegance. All rights reserved.</p>
+                    <p class="text-gray-500 text-xs mt-2">Designed with Elegance.</p>
+                </footer>
+            </div>
+        </section>
+    </div> <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        // --- 1. VIDEO SCROLL SCRUBBING LOGIC ---
+        $(document).ready(function() {
+            console.clear();
+
+            const video = document.querySelector(".video-background");
+            
+            function once(el, event, fn, opts) {
+                var onceFn = function (e) {
+                    el.removeEventListener(event, onceFn);
+                    fn.apply(this, arguments);
+                };
+                el.addEventListener(event, onceFn, opts);
+                return onceFn;
+            }
+            once(document.documentElement, "touchstart", function (e) {
+                video.play();
+                video.pause();
+            });
+
+            // Initialize GSAP
+            gsap.registerPlugin(ScrollTrigger);
+
+            let tl = gsap.timeline({
+                defaults: { duration: 1 },
+                scrollTrigger: {
+                    trigger: "#video-scrub-space", // TRIGGER IS THE SPACER
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1, // SMOOTHING SET TO 1s
+                    onUpdate: (self) => {
+                        const hero = document.getElementById('hero-fixed');
+                        if(hero) {
+                            if (self.progress > 0.8) {
+                                hero.style.opacity = 1 - (self.progress - 0.8) * 5;
+                            } else {
+                                hero.style.opacity = 1;
+                            }
+                        }
+                    }
+                }
+            });
+
+            once(video, "loadedmetadata", () => {
+                tl.fromTo(
+                    video,
+                    { currentTime: 0 },
+                    { currentTime: video.duration || 1 }
+                );
+            });
+
+            let src = video.currentSrc || video.src;
+            setTimeout(function () {
+                if (window["fetch"]) {
+                    fetch(src)
+                        .then((response) => response.blob())
+                        .then((response) => {
+                            var blobURL = URL.createObjectURL(response);
+                            var t = video.currentTime;
+                            once(document.documentElement, "touchstart", function (e) {
+                                video.play();
+                                video.pause();
+                            });
+                            video.setAttribute("src", blobURL);
+                            video.currentTime = t + 0.01;
+                        });
+                }
+            }, 1000);
+        });
+
+        // --- 2. DYNAMIC EVENTS GENERATION ---
+        const eventList = [
+            'Headshot Arena', 'Game Fest Royale', 'Dancing Feet', 'Khatron Ke Khiladi',
+            'Nukkad - Aarohan', 'Xumberance', 'Celegance Got Talent', 'Treasure Hunt',
+            'Splitsvilla', 'Wah Wah Kya Baat Hai', 'Sargam', 'Bollywood Deewane'
+        ];
+
+        const container = document.getElementById('eventsContainer');
+        let eventsHTML = '';
+
+        eventList.forEach((event, index) => {
+            const imgPath = `./2 X 4 Poster/1 (${index + 1}).png`;
+            eventsHTML += `
+            <div class="reveal w-full group cursor-pointer perspective delay-[${index % 4 * 100}ms]">
+                <div class="relative w-full aspect-[1/2] rounded-xl overflow-hidden transition-transform duration-500 group-hover:-translate-y-2 border border-white/10">
+                    <img src="${imgPath}" alt="${event}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 p-4 md:p-6 w-full">
+                        <h3 class="font-display text-xl md:text-2xl text-white mb-2 leading-tight drop-shadow-lg break-words">${event}</h3>
+                        <span class="text-lux-gold uppercase text-[10px] md:text-xs tracking-widest border-b border-lux-gold pb-1 shadow-black drop-shadow-md">Register</span>
+                    </div>
+                </div>
+            </div>`;
+        });
+        container.innerHTML = eventsHTML;
+
+        // --- 3. UI LOGIC (Loader, Menu, Reveal) ---
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                setTimeout(() => { loader.style.display = 'none'; }, 700);
+            }, 1500);
+        });
+
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/5');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/5');
+                navbar.classList.add('py-6');
+            }
+        });
+
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = '';
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                document.body.style.overflow = '';
+            });
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // --- 4. FORM VALIDATION & TOAST LOGIC ---
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            
+            // Create toast element
+            const toast = document.createElement('div');
+            
+            // Define colors based on type
+            const isError = type === 'error';
+            const icon = isError ? 
+                '<svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>' : 
+                '<svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+            
+            const borderColor = isError ? 'border-red-500/50' : 'border-green-500/50';
+            const shadowColor = isError ? 'shadow-red-500/20' : 'shadow-green-500/20';
+
+            // Tailwind classes for the Glass Toast
+            toast.className = `
+                flex items-center gap-4 px-6 py-4 rounded-xl 
+                bg-black/80 backdrop-blur-md border ${borderColor} 
+                shadow-lg ${shadowColor} 
+                transform transition-all duration-500 translate-x-10 opacity-0
+                min-w-[300px] pointer-events-auto
+            `;
+            
+            toast.innerHTML = `
+                ${icon}
+                <div>
+                    <h4 class="font-bold text-white text-sm uppercase tracking-wider">${isError ? 'Error' : 'Success'}</h4>
+                    <p class="text-gray-300 text-sm">${message}</p>
+                </div>
+            `;
+
+            container.appendChild(toast);
+
+            // Animate In (Slide from right)
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-x-10', 'opacity-0');
+            });
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                toast.classList.add('translate-x-10', 'opacity-0');
+                setTimeout(() => {
+                    toast.remove();
+                }, 500); // Wait for transition to finish
+            }, 3000);
+        }
+
+        function validateAndSubmit() {
+            // Get values
+            const company = document.getElementById('companyName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mobile = document.getElementById('mobileno').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            // Regex for validations
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const mobileRegex = /^[0-9]{10}$/; // Assumes 10 digit number
+
+            // Validation Logic
+            if (!company) {
+                showToast("Company Name is required.", "error");
+                return;
+            }
+
+            if (!email) {
+                showToast("Email address is required.", "error");
+                return;
+            } else if (!emailRegex.test(email)) {
+                showToast("Please enter a valid email.", "error");
+                return;
+            }
+
+            if (!mobile) {
+                showToast("Mobile number is required.", "error");
+                return;
+            } else if (!mobileRegex.test(mobile)) {
+                showToast("Please enter a valid 10-digit mobile number.", "error");
+                return;
+            }
+
+            if (!message) {
+                showToast("Please enter your message.", "error");
+                return;
+            }
+
+            // If all checks pass
+            showToast("Registration Submitted Successfully!", "success");
+            
+            // Optional: Reset form
+            document.getElementById('partnerForm').reset();
+            
+            // Here you would normally send data to backend...
+            console.log("Form Data Validated:", { company, email, mobile, message });
+        }
+    </script>
+</body>
+</html>

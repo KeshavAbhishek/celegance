@@ -1,0 +1,497 @@
+:root {
+    --primary: #6a1b9a;
+    --secondary: #caa94d;
+    --dark: #0f0f14;
+    --glass: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    display: none !important;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ================= LOADER ================= */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity .8s ease, visibility .8s ease;
+}
+
+.loader-text {
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    color: var(--secondary);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: .4
+    }
+
+    50% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: .4
+    }
+}
+
+#loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ================= NAVBAR ================= */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, .55);
+    backdrop-filter: blur(10px);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 8%;
+    font-weight: bolder;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+nav h1 {
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+nav a {
+    color: #ddd;
+    margin-left: 24px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+nav a:hover {
+    color: var(--secondary)
+}
+
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* VIDEO */
+.hero video {
+    /* position: absolute; */
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* OVERLAY */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, .15),
+            rgba(0, 0, 0, .15));
+    z-index: -1;
+}
+
+.hero h2 {
+    font-size: 3.6rem;
+    font-weight: 700;
+}
+
+.hero p {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+.hero button {
+    margin-top: 1.5rem;
+    padding: 14px 38px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, var(--secondary), #e6c76a);
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ================= SECTIONS ================= */
+section {
+    padding: 0.2rem 8%;
+    background: #0f0f14;
+}
+
+.glass {
+    background: var(--glass);
+    backdrop-filter: blur(12px);
+    padding: 0rem 2.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+
+/* EVENTS */
+.events {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    padding: 2rem;
+    background: #16161f;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, .08);
+    aspect-ratio: calc(2/4);
+    background-position: center;
+    background-size: cover;
+}
+
+.card:hover {
+    border-color: var(--secondary);
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, .12);
+    text-align: center;
+}
+
+th {
+    color: var(--secondary)
+}
+
+/* FORM */
+input,
+select {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    background: #12121a;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, .15);
+    border-radius: 8px;
+}
+
+form button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, var(--secondary), #e6c76a);
+    border: none;
+    font-weight: 600;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: #000;
+    color: #aaa;
+}
+
+
+#caption {
+    position: absolute;
+    bottom: 5vh;
+    font-weight: bolder;
+}
+
+#caption p {
+    font-size: 1.8rem;
+}
+
+/* ================= HAMBURGER ================= */
+.menu-btn {
+    width: 26px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu-btn span {
+    height: 3px;
+    width: 100%;
+    background: var(--secondary);
+    border-radius: 4px;
+    transition: .4s;
+}
+
+/* ================= SIDE MENU ================= */
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    background: rgba(10, 10, 15, .96);
+    backdrop-filter: blur(14px);
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 2rem;
+    gap: 2rem;
+    transition: right .5s ease;
+    z-index: 2000;
+}
+
+/* Menu Links */
+.side-menu a {
+    color: #fff;
+    font-size: 1.3rem;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateX(30px);
+}
+
+/* ACTIVE STATE */
+.side-menu.active {
+    right: 0;
+}
+
+/* QUEUE / STAGGER EFFECT */
+.side-menu.active a {
+    animation: slideIn .5s ease forwards;
+}
+
+.side-menu.active a:nth-child(1) {
+    animation-delay: .1s;
+}
+
+.side-menu.active a:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.side-menu.active a:nth-child(3) {
+    animation-delay: .3s;
+}
+
+.side-menu.active a:nth-child(4) {
+    animation-delay: .4s;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* DESKTOP NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+/* HAMBURGER */
+.menu-btn {
+    display: none;
+    width: 26px;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.menu-btn span {
+    height: 3px;
+    background: var(--secondary);
+    border-radius: 4px;
+}
+
+/* MOBILE MODE */
+@media (max-width: 768px) {
+
+    .nav-links {
+        display: none;
+        /* hide desktop links */
+    }
+
+    .menu-btn {
+        display: flex;
+        /* show hamburger */
+    }
+}
+
+/* DESKTOP MODE */
+@media (min-width: 769px) {
+
+    .side-menu,
+    .menu-overlay {
+        display: none !important;
+    }
+}
+
+
+/* overlay to detect outside click */
+.menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    z-index: 1500;
+    display: none;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+/* reverse animation */
+.side-menu.closing a {
+    animation: slideOut .35s ease forwards;
+}
+
+.side-menu.closing a:nth-child(1) {
+    animation-delay: .3s;
+}
+
+.side-menu.closing a:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.side-menu.closing a:nth-child(3) {
+    animation-delay: .1s;
+}
+
+.side-menu.closing a:nth-child(4) {
+    animation-delay: 0s;
+}
+
+@keyframes slideOut {
+    to {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* border: 1px solid white; */
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+}
+
+#join {
+    font-size: 1.3rem;
+    animation: popupdown 0.5s ease infinite alternate;
+}
+
+@keyframes popupdown {
+    0% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+#about h2 {
+    font-size: 7rem !important;
+}
+
+#parabout {
+    text-wrap-mode: wrap;
+    text-align: justify;
+    font-size: 2rem;
+}
+
+#parabout span {
+    font-size: 3rem;
+}
+
+#abtheading {
+    margin-top: 7rem;
+}
+
+#events h2{
+    font-size: 7rem !important;
+    margin-top: 7rem !important;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+
+/* ================= MOBILE OPTIMIZATION ================= */
+@media (max-width: 768px) {
+    .hero video {
+        object-fit: contain;
+    }
+
+    #overlay {
+        background: transparent;
+        position: fixed;
+    }
+
+    #about h2 {
+        font-size: 2.5rem !important;
+    }
+
+    #caption {
+        bottom: 6rem;
+    }
+
+    #caption p {
+        font-size: 1.0rem;
+    }
+
+    #join {
+        font-size: 1rem;
+    }
+
+    #logo {
+        width: 150px;
+    }
+
+    .glass {
+        padding: 0 1rem !important;
+    }
+
+    #parabout {
+        font-size: 1.15rem;
+    }
+
+    #parabout span {
+        font-size: 1.5rem !important;
+    }
+}
