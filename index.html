@@ -163,6 +163,12 @@
             height: 100vh;
             touch-action: none;
         }
+
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
     </style>
 </head>
 
@@ -235,8 +241,8 @@
             <source src="./src/BG.mp4" type="video/mp4">
         </video> -->
         <video autoplay muted loop playsinline class="video-bg opacity-100">
-            <!-- <source src="./src/web-smooth-2.mp4" type="video/mp4" media="(min-width: 769px)"> -->
-            <!-- <source src="./src/cele-mobile-smooth.mp4" type="video/mp4" media="(max-width: 768px)"> -->
+            <source src="./src/web-smooth-2.mp4" type="video/mp4" media="(min-width: 769px)">
+            <source src="./src/cele-mobile-smooth.mp4" type="video/mp4" media="(max-width: 768px)">
         </video>
 
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-lux-dark z-0"></div>
@@ -669,8 +675,57 @@
                 curtain.remove();
             }, 1000);
         });
-        
+
     </script>
+    <script>
+        document.addEventListener('contextmenu', e => e.preventDefault());
+    </script>
+    <script>
+        document.addEventListener('keydown', function (e) {
+            // F12
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+
+            // Ctrl + Shift + I / J / C
+            if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) {
+                e.preventDefault();
+            }
+
+            // Ctrl + U (View Source)
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+            }
+        });
+    </script>
+    <script>
+        (function () {
+            const threshold = 160;
+
+            setInterval(() => {
+                if (
+                    window.outerWidth - window.innerWidth > threshold ||
+                    window.outerHeight - window.innerHeight > threshold
+                ) {
+                    document.body.innerHTML = `
+                <div style="
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    height:100vh;
+                    background:black;
+                    color:#D4AF37;
+                    font-family:serif;
+                    font-size:2rem;
+                    letter-spacing:0.2em;">
+                    ACCESS RESTRICTED
+                </div>`;
+                }
+            }, 1000);
+        })();
+    </script>
+
+
 
 </body>
 
