@@ -606,7 +606,84 @@
             }, 3000);
         }
 
-        function validateAndSubmit() {
+        // async function validateAndSubmit() {
+        //     // Get values
+        //     const company = document.getElementById('companyName').value.trim();
+        //     const email = document.getElementById('email').value.trim();
+        //     const mobile = document.getElementById('mobileno').value.trim();
+        //     const message = document.getElementById('message').value.trim();
+
+        //     // Regex for validations
+        //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        //     const mobileRegex = /^[0-9]{10}$/; // Assumes 10 digit number
+
+        //     // Validation Logic
+        //     if (!company) {
+        //         showToast("Company Name is required.", "error");
+        //         return;
+        //     }
+
+        //     if (!email) {
+        //         showToast("Email address is required.", "error");
+        //         return;
+        //     } else if (!emailRegex.test(email)) {
+        //         showToast("Please enter a valid email.", "error");
+        //         return;
+        //     }
+
+        //     if (!mobile) {
+        //         showToast("Mobile number is required.", "error");
+        //         return;
+        //     } else if (!mobileRegex.test(mobile)) {
+        //         showToast("Please enter a valid 10-digit mobile number.", "error");
+        //         return;
+        //     }
+
+        //     if (!message) {
+        //         showToast("Please enter your message.", "error");
+        //         return;
+        //     }
+
+        //     // If all checks pass
+        //     // showToast("Registration Submitted Successfully!", "success");
+
+        //     // Optional: Reset form
+        //     document.getElementById('partnerForm').reset();
+
+        //     // Here you would normally send data to backend...
+        //     // console.log("Form Data Validated:", { company, email, mobile, message });
+
+
+        //     const formData = {
+        //         cname: company,
+        //         cemail: email,
+        //         cmobile: mobile,
+        //         cmessage: message
+        //     };
+
+        //     try {
+        //         // Replace 'YOUR_GCP_EXTERNAL_IP' with your VM's actual External IP
+        //         const response = await fetch('http://35.244.2.133:3000/send-email', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             },
+        //             body: JSON.stringify(formData)
+        //         });
+
+        //         const result = await response.json();
+        //         if (result.success) {
+        //             alert("Message sent! " + result.message);
+        //         } else {
+        //             alert("Error sending message.");
+        //         }
+        //     } catch (error) {
+        //         console.error('Error:', error);
+        //         alert("Failed to connect to server.");
+        //     }
+        //     showToast("Registration Submitted Successfully!", "success");
+        // }
+        async function validateAndSubmit() {
             // Get values
             const company = document.getElementById('companyName').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -615,43 +692,48 @@
 
             // Regex for validations
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const mobileRegex = /^[0-9]{10}$/; // Assumes 10 digit number
+            const mobileRegex = /^[0-9]{10}$/;
 
             // Validation Logic
-            if (!company) {
-                showToast("Company Name is required.", "error");
-                return;
+            if (!company) { showToast("Company Name is required.", "error"); return; }
+            if (!email) { showToast("Email address is required.", "error"); return; }
+            else if (!emailRegex.test(email)) { showToast("Please enter a valid email.", "error"); return; }
+            if (!mobile) { showToast("Mobile number is required.", "error"); return; }
+            else if (!mobileRegex.test(mobile)) { showToast("Please enter a valid 10-digit mobile number.", "error"); return; }
+            if (!message) { showToast("Please enter your message.", "error"); return; }
+
+            // --- FIX 2: Match keys to what server.js expects (name, email, message) ---
+            const formData = {
+                cname: company,
+                cemail: email,
+                cmobile: mobile,
+                cmessage: message
+            };
+
+            try {
+                // --- FIX 1: Use the secure domain, NOT the IP ---
+                const response = await fetch('http://35.200.200.56:3000/send-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // --- FIX 3: Only reset and show success if it actually worked ---
+                    document.getElementById('partnerForm').reset();
+                    showToast("Registration Submitted Successfully!", "success");
+                    // alert("Message sent successfully!");
+                } else {
+                    showToast("Server error. Please try again.", "error");
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showToast("Failed to connect to server.", "error");
             }
-
-            if (!email) {
-                showToast("Email address is required.", "error");
-                return;
-            } else if (!emailRegex.test(email)) {
-                showToast("Please enter a valid email.", "error");
-                return;
-            }
-
-            if (!mobile) {
-                showToast("Mobile number is required.", "error");
-                return;
-            } else if (!mobileRegex.test(mobile)) {
-                showToast("Please enter a valid 10-digit mobile number.", "error");
-                return;
-            }
-
-            if (!message) {
-                showToast("Please enter your message.", "error");
-                return;
-            }
-
-            // If all checks pass
-            showToast("Registration Submitted Successfully!", "success");
-
-            // Optional: Reset form
-            document.getElementById('partnerForm').reset();
-
-            // Here you would normally send data to backend...
-            console.log("Form Data Validated:", { company, email, mobile, message });
         }
     </script>
     <script>
@@ -680,7 +762,7 @@
     <script>
         document.addEventListener('contextmenu', e => e.preventDefault());
     </script>
-    <script>
+    <!-- <script>
         document.addEventListener('keydown', function (e) {
             // F12
             if (e.key === 'F12') {
@@ -697,7 +779,7 @@
                 e.preventDefault();
             }
         });
-    </script>
+    </script> -->
     <!-- <script>
         (function () {
             const threshold = 160;
