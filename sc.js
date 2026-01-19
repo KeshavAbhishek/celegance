@@ -1,84 +1,87 @@
-const video = document.getElementById("bgVideo");
-// const loader = document.getElementById("loader");
-
-// function hideLoader() {
-//     loader.classList.add("hide");
-// }
-
-// video.addEventListener("canplaythrough", hideLoader);
-// window.addEventListener("load", () => {
-//     setTimeout(hideLoader, 2000);
-// });
-
-// const video = document.getElementById('bgVideo');
-let lastWidth = window.innerWidth;
-
-window.addEventListener('resize', () => {
-    const currentWidth = window.innerWidth;
-    // Only reload if we cross the 768px/769px breakpoint
-    if ((lastWidth <= 768 && currentWidth > 768) || (lastWidth > 768 && currentWidth <= 768)) {
-        video.load(); // Forces the browser to re-evaluate the <source> tags
-        video.play();
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                lux: {
+                    gold: '#D4AF37',
+                    goldLight: '#F3E5AB',
+                    dark: '#050505',
+                    charcoal: '#0a0a0a',
+                    purple: '#1a0b2e',
+                    glass: 'rgba(255, 255, 255, 0.03)'
+                }
+            },
+            fontFamily: {
+                display: ['Cinzel', 'serif'],
+                body: ['Space Grotesk', 'sans-serif'],
+            },
+            animation: {
+                'float': 'float 6s ease-in-out infinite',
+                'spin-slow': 'spin 12s linear infinite',
+            },
+            keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                }
+            }
+        }
     }
-    lastWidth = currentWidth;
-});
-
-document.getElementById("regForm").onsubmit = e => {
-    e.preventDefault();
-    msg.innerText = "Registration successful!";
-};
-
-const menuBtn = document.getElementById("menuBtn");
-const sideMenu = document.getElementById("sideMenu");
-const overlay = document.getElementById("menuOverlay");
-const menuLinks = document.querySelectorAll(".side-menu a");
-
-let targetSection = null;
-
-/* OPEN MENU */
-menuBtn.onclick = () => {
-    sideMenu.classList.add("active");
-    overlay.classList.add("active");
-};
-
-/* CLOSE MENU (QUEUE REVERSE) */
-function closeMenu(callback) {
-    sideMenu.classList.add("closing");
-
-    setTimeout(() => {
-        sideMenu.classList.remove("active", "closing");
-        overlay.classList.remove("active");
-        if (callback) callback();
-    }, 500); // must match animation timing
 }
 
-/* TOUCH OUTSIDE → CLOSE */
-overlay.onclick = () => {
-    closeMenu();
-};
 
-/* CLICK MENU OPTION */
-menuLinks.forEach(link => {
-    link.onclick = e => {
-        e.preventDefault();
-        targetSection = document.querySelector(link.getAttribute("href"));
-
-        closeMenu(() => {
-            targetSection.scrollIntoView({
-                behavior: "smooth"
-            });
-        });
-    };
+// 1. Loader Logic
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const loader = document.getElementById('loader');
+        loader.style.opacity = '0';
+        setTimeout(() => { loader.style.display = 'none'; }, 700);
+    }, 1500);
 });
 
-
-document.getElementById("logo").addEventListener("click", () => {
-    document.location.replace('/');
+// 2. Navbar Scroll Effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/5');
+        navbar.classList.remove('py-6');
+    } else {
+        navbar.classList.remove('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/5');
+        navbar.classList.add('py-6');
+    }
 });
 
-// EVENTS SECTION JS
-var eventscard = '';
-var eventList = [
+// 3. Mobile Menu Toggle
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+let isMenuOpen = false;
+
+menuBtn.addEventListener('click', () => {
+    isMenuOpen = !isMenuOpen;
+    if (isMenuOpen) {
+        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+        mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.style.overflow = 'hidden'; // Stop scrolling
+    } else {
+        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+    }
+});
+
+// Close mobile menu on link click
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        isMenuOpen = false;
+        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+    });
+});
+
+// 3.5 DYNAMIC EVENTS GENERATION
+const eventList = [
     'Headshot Arena',
     'Game Fest Royale',
     'Dancing Feet',
@@ -93,9 +96,160 @@ var eventList = [
     'Bollywood Deewane'
 ];
 
-for (let index = 0; index < eventList.length; index++) {
-    const element = eventList[index];
-    eventscard += `<div class="card" style="background-image: url('./2 X 4 Poster/1 (${index+1}).png');">${eventList[index]}</div>`;
+const container = document.getElementById('eventsContainer');
+let eventsHTML = '';
+
+eventList.forEach((event, index) => {
+    const imgPath = `./poster/${index + 1}.png`;
+
+    eventsHTML += `
+            <div class="reveal w-full group cursor-pointer perspective delay-[${index % 4 * 100}ms]">
+                <div class="relative w-full aspect-[1/1.414] rounded-xl overflow-hidden transition-transform duration-500 group-hover:-translate-y-2 border border-white/10">
+                    
+                    <img src="${imgPath}" alt="${event}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
+                    
+                    <div class="absolute bottom-0 p-4 md:p-6 w-full">
+                        
+                        <span class="text-lux-gold uppercase text-[10px] md:text-xs tracking-widest border-b border-lux-gold pb-1 shadow-black drop-shadow-md text-right registerLink">Register</span>
+                    </div>
+                </div>
+            </div>
+            `;
+});
+
+container.innerHTML = eventsHTML;
+
+// 4. Scroll Reveal Animation (Intersection Observer)
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            // Optional: Unobserve if you only want it to happen once
+            // revealObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// 5. Horizontal Scroll Buttons
+const scrollLeftBtn = document.getElementById('scrollLeft');
+const scrollRightBtn = document.getElementById('scrollRight');
+const eventsContainer = document.getElementById('eventsContainer');
+
+if (scrollLeftBtn && scrollRightBtn && eventsContainer) {
+    scrollLeftBtn.addEventListener('click', () => {
+        eventsContainer.scrollBy({ left: -400, behavior: 'smooth' });
+    });
+    scrollRightBtn.addEventListener('click', () => {
+        eventsContainer.scrollBy({ left: 400, behavior: 'smooth' });
+    });
 }
 
-document.getElementById("cards").innerHTML = eventscard;
+function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+
+    // Create toast element
+    const toast = document.createElement('div');
+
+    // Define colors based on type
+    const isError = type === 'error';
+    const icon = isError ?
+        '<svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>' :
+        '<svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+
+    const borderColor = isError ? 'border-red-500/50' : 'border-green-500/50';
+    const shadowColor = isError ? 'shadow-red-500/20' : 'shadow-green-500/20';
+
+    // Tailwind classes for the Glass Toast
+    toast.className = `
+                flex items-center gap-4 px-6 py-4 rounded-xl 
+                bg-black/80 backdrop-blur-md border ${borderColor} 
+                shadow-lg ${shadowColor} 
+                transform transition-all duration-500 translate-x-10 opacity-0
+                min-w-[300px] pointer-events-auto
+            `;
+
+    toast.innerHTML = `
+                ${icon}
+                <div>
+                    <h4 class="font-bold text-white text-sm uppercase tracking-wider">${isError ? 'Error' : 'Success'}</h4>
+                    <p class="text-gray-300 text-sm">${message}</p>
+                </div>
+            `;
+
+    container.appendChild(toast);
+
+    // Animate In (Slide from right)
+    requestAnimationFrame(() => {
+        toast.classList.remove('translate-x-10', 'opacity-0');
+    });
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        toast.classList.add('translate-x-10', 'opacity-0');
+        setTimeout(() => {
+            toast.remove();
+        }, 500); // Wait for transition to finish
+    }, 3000);
+}
+
+async function validateAndSubmit() {
+    // Get values
+    const company = document.getElementById('companyName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const mobile = document.getElementById('mobileno').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    // Regex for validations
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const mobileRegex = /^[0-9]{10}$/;
+
+    // Validation Logic
+    if (!company) { showToast("Company Name is required.", "error"); return; }
+    if (!email) { showToast("Email address is required.", "error"); return; }
+    else if (!emailRegex.test(email)) { showToast("Please enter a valid email.", "error"); return; }
+    if (!mobile) { showToast("Mobile number is required.", "error"); return; }
+    else if (!mobileRegex.test(mobile)) { showToast("Please enter a valid 10-digit mobile number.", "error"); return; }
+    if (!message) { showToast("Please enter your message.", "error"); return; }
+
+    // --- FIX 2: Match keys to what server.js expects (name, email, message) ---
+    const formData = {
+        cname: company,
+        cemail: email,
+        cmobile: mobile,
+        cmessage: message
+    };
+
+    try {
+        // --- FIX 1: Use the secure domain, NOT the IP ---
+        const response = await fetch('https://celegance.live/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            // --- FIX 3: Only reset and show success if it actually worked ---
+            document.getElementById('partnerForm').reset();
+            showToast("Registration Submitted Successfully!", "success");
+            // alert("Message sent successfully!");
+        } else {
+            showToast("Server error. Please try again.", "error");
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        showToast("Failed to connect to server.", "error");
+    }
+}

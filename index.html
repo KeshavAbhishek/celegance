@@ -4,172 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celegance 2026 | Future Reimagined</title>
+    <title>Celegance 2026</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Grotesk:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="shortcut icon" href="./src/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        lux: {
-                            gold: '#D4AF37',
-                            goldLight: '#F3E5AB',
-                            dark: '#050505',
-                            charcoal: '#0a0a0a',
-                            purple: '#1a0b2e',
-                            glass: 'rgba(255, 255, 255, 0.03)'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['Cinzel', 'serif'],
-                        body: ['Space Grotesk', 'sans-serif'],
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'spin-slow': 'spin 12s linear infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        }
-                    }
-                }
-            }
-        }
+        document.addEventListener('contextmenu', e => e.preventDefault());
     </script>
 
-    <style>
-        :root {
-            --nav-height: 96px;
-        }
-
-        section[id] {
-            scroll-margin-top: var(--nav-height);
-        }
-
-        @media (max-width: 768px) {
-            :root {
-                --nav-height: 110px;
-            }
-        }
-
-        /* Hide Scrollbar but keep functionality */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #050505;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #D4AF37;
-        }
-
-        /* Smooth Reveal Base Styles */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Glassmorphism Utilities */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Video Background */
-        .video-bg {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        /* Custom Selection Color */
-        ::selection {
-            background: #D4AF37;
-            color: #000;
-        }
-
-        .registerLink {
-            width: 100%;
-            text-align: right;
-            display: block;
-            border: none;
-        }
-
-
-
-        #curtain {
-            position: relative;
-            /* It scrolls naturally */
-            z-index: 99;
-            /* Covers Video (0) and Hero (10) and Navbar (40) */
-            height: 100vh;
-            width: 100%;
-            background: black;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media screen and (max-width: 768px) {
-            #whiteLogoOnLoad {
-                width: 70dvw;
-            }
-
-            .contacth2 {
-                font-size: 1.8rem !important;
-            }
-
-            /* #about {
-                padding-top: 10vh !important;
-                border: 1px solid white;
-            } */
-        }
-
-        .no-scroll {
-            overflow: hidden;
-            height: 100vh;
-            touch-action: none;
-        }
-
-        * {
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-    </style>
 </head>
 
 <body class="bg-lux-dark text-white font-body antialiased overflow-x-hidden selection:bg-lux-gold selection:text-black">
@@ -178,8 +27,6 @@
     <div id="loader"
         class="fixed inset-0 z-[9999] bg-black flex items-center justify-center transition-opacity duration-700">
         <div class="text-center">
-            <!-- <h1 class="font-display text-4xl md:text-6xl text-lux-gold tracking-[0.5em] uppercase animate-pulse text-bold">
-                Celegance</h1> -->
             <img src="./src/ClogoWhite.png" alt="" class="animate-pulse" id="whiteLogoOnLoad">
             <p class="text-base text-gray-500 mt-4 tracking-widest">LOADING EXPERIENCE</p>
         </div>
@@ -202,7 +49,8 @@
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="#" class="z-50 block">
                 <img src="./src/ClogoWhite.png" alt="Celegance Logo"
-                    class="h-20 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
+                    class="h-20 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                    id="navicon">
             </a>
 
             <div class="hidden md:flex items-center gap-12 glass-panel px-8 py-3 rounded-full">
@@ -247,12 +95,6 @@
 
         <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-lux-dark z-0"></div>
 
-        <!-- <div class="relative z-10 text-center px-4 max-w-5xl mx-auto -mt-20"> <p class="reveal delay-100 text-lux-gold text-sm md:text-base tracking-[0.4em] mb-4 uppercase">C.V. Raman Global University Presents</p>
-            <h1 class="reveal delay-200 font-display text-6xl md:text-9xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-500">
-                CELEGANCE
-            </h1>
-        </div> -->
-
         <div class="absolute bottom-24 left-0 w-full text-center z-20 px-4">
 
             <div class="reveal delay-300 flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
@@ -287,15 +129,16 @@
             class="absolute top-0 right-0 w-[500px] h-[500px] bg-lux-gold/5 rounded-full blur-[120px] pointer-events-none">
         </div>
 
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+        <div class="container mx-auto px-6 items-center flex flex-col md:flex-row justify-between">
             <div class="reveal">
                 <h2 class="font-display text-5xl md:text-7xl mb-8 leading-tight">
-                    ABOUT <br><span class="text-lux-gold italic">CELEGANCE</span><br>2026.
+                    ABOUT <br><span class="text-lux-gold italic">CELEGANCE</span>
+                    <!-- <br>2026. -->
                 </h2>
                 <div class="h-1 w-24 bg-gradient-to-r from-lux-gold to-transparent mb-8"></div>
             </div>
-            <div class="reveal glass-panel p-2 md:p-12 rounded-2xl relative mb-0">
-                <p class="text-lg text-gray-300 leading-relaxed mb-6 font-light text-justify">
+            <div class="reveal glass-panel p-2 md:p-12 rounded-2xl relative mb-0 w-full md:w-[50vw]">
+                <p class="text-lg text-gray-300 leading-relaxed mb-6 font-light text-justify" style="padding-left: 10px;padding-right: 10px;">
                     <span class="text-4xl text-lux-gold font-display mr-2">C</span>elegance is not just a series of
                     events; it’s an experience that goes far beyond that. The anticipation leading up to the marquee
                     event of our college is something that must be seen and believed. Every year, over 6,000
@@ -423,320 +266,10 @@
                     </button>
                 </form>
             </div>
-
-            <!-- <footer class="mt-24 text-center border-t border-white/5 pt-12 glass-panel rounded-t-xl">
-                <div class="flex justify-center items-center gap-2 mb-4">
-                    <span class="font-display text-xl font-bold">CGU</span>
-                </div>
-                <p class="text-gray-300 text-sm">© 2026 Celegance. All rights reserved.</p>
-                <p class="text-gray-500 text-xs mt-2">Designed with Elegance.</p>
-            </footer> -->
         </div>
     </section>
-
-    <script>
-        // 1. Loader Logic
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const loader = document.getElementById('loader');
-                loader.style.opacity = '0';
-                setTimeout(() => { loader.style.display = 'none'; }, 700);
-            }, 1500);
-        });
-
-        // 2. Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/5');
-                navbar.classList.remove('py-6');
-            } else {
-                navbar.classList.remove('bg-black/80', 'backdrop-blur-md', 'py-4', 'border-b', 'border-white/5');
-                navbar.classList.add('py-6');
-            }
-        });
-
-        // 3. Mobile Menu Toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        let isMenuOpen = false;
-
-        menuBtn.addEventListener('click', () => {
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-                mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-                document.body.style.overflow = 'hidden'; // Stop scrolling
-            } else {
-                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Close mobile menu on link click
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                isMenuOpen = false;
-                mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-                mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // 3.5 DYNAMIC EVENTS GENERATION
-        const eventList = [
-            'Headshot Arena',
-            'Game Fest Royale',
-            'Dancing Feet',
-            'Khatron Ke Khiladi',
-            'Nukkad - Aarohan',
-            'Xumberance',
-            'Celegance Got Talent',
-            'Treasure Hunt',
-            'Splitsvilla',
-            'Wah Wah Kya Baat Hai',
-            'Sargam',
-            'Bollywood Deewane'
-        ];
-
-        const container = document.getElementById('eventsContainer');
-        let eventsHTML = '';
-
-        eventList.forEach((event, index) => {
-            const imgPath = `./poster/${index + 1}.png`;
-
-            eventsHTML += `
-            <div class="reveal w-full group cursor-pointer perspective delay-[${index % 4 * 100}ms]">
-                <div class="relative w-full aspect-[1/1.414] rounded-xl overflow-hidden transition-transform duration-500 group-hover:-translate-y-2 border border-white/10">
-                    
-                    <img src="${imgPath}" alt="${event}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
-                    
-                    <div class="absolute bottom-0 p-4 md:p-6 w-full">
-                        
-                        <span class="text-lux-gold uppercase text-[10px] md:text-xs tracking-widest border-b border-lux-gold pb-1 shadow-black drop-shadow-md text-right registerLink">Register</span>
-                    </div>
-                </div>
-            </div>
-            `;
-        });
-
-        container.innerHTML = eventsHTML;
-
-        // 4. Scroll Reveal Animation (Intersection Observer)
-        const revealElements = document.querySelectorAll('.reveal');
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    // Optional: Unobserve if you only want it to happen once
-                    // revealObserver.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-
-        // 5. Horizontal Scroll Buttons
-        const scrollLeftBtn = document.getElementById('scrollLeft');
-        const scrollRightBtn = document.getElementById('scrollRight');
-        const eventsContainer = document.getElementById('eventsContainer');
-
-        if (scrollLeftBtn && scrollRightBtn && eventsContainer) {
-            scrollLeftBtn.addEventListener('click', () => {
-                eventsContainer.scrollBy({ left: -400, behavior: 'smooth' });
-            });
-            scrollRightBtn.addEventListener('click', () => {
-                eventsContainer.scrollBy({ left: 400, behavior: 'smooth' });
-            });
-        }
-
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toast-container');
-
-            // Create toast element
-            const toast = document.createElement('div');
-
-            // Define colors based on type
-            const isError = type === 'error';
-            const icon = isError ?
-                '<svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>' :
-                '<svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
-
-            const borderColor = isError ? 'border-red-500/50' : 'border-green-500/50';
-            const shadowColor = isError ? 'shadow-red-500/20' : 'shadow-green-500/20';
-
-            // Tailwind classes for the Glass Toast
-            toast.className = `
-                flex items-center gap-4 px-6 py-4 rounded-xl 
-                bg-black/80 backdrop-blur-md border ${borderColor} 
-                shadow-lg ${shadowColor} 
-                transform transition-all duration-500 translate-x-10 opacity-0
-                min-w-[300px] pointer-events-auto
-            `;
-
-            toast.innerHTML = `
-                ${icon}
-                <div>
-                    <h4 class="font-bold text-white text-sm uppercase tracking-wider">${isError ? 'Error' : 'Success'}</h4>
-                    <p class="text-gray-300 text-sm">${message}</p>
-                </div>
-            `;
-
-            container.appendChild(toast);
-
-            // Animate In (Slide from right)
-            requestAnimationFrame(() => {
-                toast.classList.remove('translate-x-10', 'opacity-0');
-            });
-
-            // Remove after 3 seconds
-            setTimeout(() => {
-                toast.classList.add('translate-x-10', 'opacity-0');
-                setTimeout(() => {
-                    toast.remove();
-                }, 500); // Wait for transition to finish
-            }, 3000);
-        }
-
-        // async function validateAndSubmit() {
-        //     // Get values
-        //     const company = document.getElementById('companyName').value.trim();
-        //     const email = document.getElementById('email').value.trim();
-        //     const mobile = document.getElementById('mobileno').value.trim();
-        //     const message = document.getElementById('message').value.trim();
-
-        //     // Regex for validations
-        //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        //     const mobileRegex = /^[0-9]{10}$/; // Assumes 10 digit number
-
-        //     // Validation Logic
-        //     if (!company) {
-        //         showToast("Company Name is required.", "error");
-        //         return;
-        //     }
-
-        //     if (!email) {
-        //         showToast("Email address is required.", "error");
-        //         return;
-        //     } else if (!emailRegex.test(email)) {
-        //         showToast("Please enter a valid email.", "error");
-        //         return;
-        //     }
-
-        //     if (!mobile) {
-        //         showToast("Mobile number is required.", "error");
-        //         return;
-        //     } else if (!mobileRegex.test(mobile)) {
-        //         showToast("Please enter a valid 10-digit mobile number.", "error");
-        //         return;
-        //     }
-
-        //     if (!message) {
-        //         showToast("Please enter your message.", "error");
-        //         return;
-        //     }
-
-        //     // If all checks pass
-        //     // showToast("Registration Submitted Successfully!", "success");
-
-        //     // Optional: Reset form
-        //     document.getElementById('partnerForm').reset();
-
-        //     // Here you would normally send data to backend...
-        //     // console.log("Form Data Validated:", { company, email, mobile, message });
-
-
-        //     const formData = {
-        //         cname: company,
-        //         cemail: email,
-        //         cmobile: mobile,
-        //         cmessage: message
-        //     };
-
-        //     try {
-        //         // Replace 'YOUR_GCP_EXTERNAL_IP' with your VM's actual External IP
-        //         const response = await fetch('http://35.244.2.133:3000/send-email', {
-        //             method: 'POST',
-        //             headers: {
-        //                 'Content-Type': 'application/json'
-        //             },
-        //             body: JSON.stringify(formData)
-        //         });
-
-        //         const result = await response.json();
-        //         if (result.success) {
-        //             alert("Message sent! " + result.message);
-        //         } else {
-        //             alert("Error sending message.");
-        //         }
-        //     } catch (error) {
-        //         console.error('Error:', error);
-        //         alert("Failed to connect to server.");
-        //     }
-        //     showToast("Registration Submitted Successfully!", "success");
-        // }
-        async function validateAndSubmit() {
-            // Get values
-            const company = document.getElementById('companyName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const mobile = document.getElementById('mobileno').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            // Regex for validations
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const mobileRegex = /^[0-9]{10}$/;
-
-            // Validation Logic
-            if (!company) { showToast("Company Name is required.", "error"); return; }
-            if (!email) { showToast("Email address is required.", "error"); return; }
-            else if (!emailRegex.test(email)) { showToast("Please enter a valid email.", "error"); return; }
-            if (!mobile) { showToast("Mobile number is required.", "error"); return; }
-            else if (!mobileRegex.test(mobile)) { showToast("Please enter a valid 10-digit mobile number.", "error"); return; }
-            if (!message) { showToast("Please enter your message.", "error"); return; }
-
-            // --- FIX 2: Match keys to what server.js expects (name, email, message) ---
-            const formData = {
-                cname: company,
-                cemail: email,
-                cmobile: mobile,
-                cmessage: message
-            };
-
-            try {
-                // --- FIX 1: Use the secure domain, NOT the IP ---
-                const response = await fetch('https://celegance.live/send-email', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(formData)
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    // --- FIX 3: Only reset and show success if it actually worked ---
-                    document.getElementById('partnerForm').reset();
-                    showToast("Registration Submitted Successfully!", "success");
-                    // alert("Message sent successfully!");
-                } else {
-                    showToast("Server error. Please try again.", "error");
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                showToast("Failed to connect to server.", "error");
-            }
-        }
-    </script>
-    <script>
+    <script src="./sc.js" defer></script>
+    <script defer>
         // LOCK SCROLL INITIALLY
         document.body.classList.add('no-scroll');
 
@@ -757,10 +290,6 @@
                 curtain.remove();
             }, 1000);
         });
-
-    </script>
-    <script>
-        document.addEventListener('contextmenu', e => e.preventDefault());
     </script>
     <!-- <script>
         document.addEventListener('keydown', function (e) {
@@ -806,9 +335,6 @@
             }, 1000);
         })();
     </script> -->
-
-
-
 </body>
 
 </html>
