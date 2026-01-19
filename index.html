@@ -1,1 +1,380 @@
-<!DOCTYPE html><html lang="en" class="scroll-smooth"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Celegance 2026</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet"><link rel="shortcut icon" href="./src/favicon.ico" type="image/x-icon"><link rel="stylesheet" href="style.css"><script src="https://cdn.tailwindcss.com"></script><script src="https://unpkg.com/lucide@latest"></script><script>document.addEventListener("contextmenu",e=>e.preventDefault())</script></head><body class="bg-lux-dark text-white font-body antialiased overflow-x-hidden selection:bg-lux-gold selection:text-black relative"><div id="toast-container" class="fixed top-24 right-6 z-[100] flex flex-col gap-4 pointer-events-none"></div><div id="loader" class="fixed inset-0 z-[9999] bg-black flex items-center justify-center transition-opacity duration-700"><div class="text-center"><img src="./src/ClogoWhite.png" alt="" class="animate-pulse" id="whiteLogoOnLoad"><p class="text-base text-gray-500 mt-4 tracking-widest">LOADING EXPERIENCE</p></div></div><section id="curtain"><div class="text-center animate-pulse"><p class="text-gray-400 text-sm tracking-[0.5em] uppercase mb-4">-- THE WAIT ENDS --</p><h2 class="text-white font-display text-3xl md:text-5xl tracking-widest">CLICK TO REVEAL</h2><div class="mt-8" id="revealBtn"><svg class="w-6 h-6 text-lux-gold mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></div></div></section><nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-6"><div class="container mx-auto px-6 flex justify-between items-center"><a href="#" class="z-50 block"><img src="./src/ClogoWhite.png" alt="Celegance Logo" class="h-20 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]" id="navicon"></a><div class="hidden md:flex items-center gap-12 glass-panel px-8 py-3 rounded-full"><a href="#about" class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">About</a> <a href="#gallery" class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">Gallery</a> <a href="#events" class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">Events</a> <a href="#schedule" class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">Schedule</a> <a href="#contact" class="bg-lux-gold text-black px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide hover:bg-white hover:scale-105 transition-all">Contact Us</a></div><button id="menuBtn" class="md:hidden z-50 flex flex-col gap-1.5 group"><span class="w-8 h-[2px] bg-white transition-transform group-hover:bg-lux-gold"></span> <span class="w-6 h-[2px] bg-white ml-auto transition-transform group-hover:w-8 group-hover:bg-lux-gold"></span> <span class="w-8 h-[2px] bg-white transition-transform group-hover:bg-lux-gold"></span></button></div></nav><div id="mobileMenu" class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500"><div class="flex flex-col gap-8 text-center"><a href="#about" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">About</a> <a href="#gallery" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Gallery</a> <a href="#events" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Events</a> <a href="#schedule" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Schedule</a> <a href="#contact" class="mobile-link text-3xl font-display text-lux-gold">Contact Us</a></div></div><section class="relative h-screen w-full overflow-hidden flex items-center justify-center"><video autoplay muted loop playsinline preload="auto" class="video-bg opacity-100" poster="./src/poster-image.jpg"><source src="./src/web-smooth-2.mp4" type="video/mp4" media="(min-width: 769px)"><source src="./src/cele-mobile-smooth.mp4" type="video/mp4" media="(max-width: 768px)"></video><div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-lux-dark z-0"></div><div class="absolute bottom-24 left-0 w-full text-center z-20 px-4"><div class="reveal delay-300 flex flex-col md:flex-row items-center justify-center gap-6 mb-8"><div class="h-[1px] w-12 bg-lux-gold hidden md:block"></div><p class="text-xl md:text-2xl font-light tracking-wide text-white">Feb 06 — 07, 2026</p><div class="h-[1px] w-12 bg-lux-gold hidden md:block"></div></div><div class="reveal delay-500"><a href="#contact" class="group relative px-8 py-4 bg-black/40 backdrop-blur-sm border border-white/20 overflow-hidden rounded-full inline-block"><div class="absolute inset-0 w-0 bg-lux-gold transition-all duration-[250ms] ease-out group-hover:w-full opacity-10"></div><span class="relative text-sm uppercase tracking-widest font-bold text-white group-hover:text-lux-gold transition-colors">Become a Sponsor</span></a></div></div><div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20"><svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg></div></section><section id="about" class="py-24 md:py-32 relative overflow-hidden"><div class="absolute top-0 right-0 w-[500px] h-[500px] bg-lux-gold/5 rounded-full blur-[120px] pointer-events-none"></div><div class="container mx-auto px-6 items-center flex flex-col md:flex-row justify-between"><div class="reveal"><h2 class="font-display text-5xl md:text-7xl mb-8 leading-tight">ABOUT<br><span class="text-lux-gold italic">CELEGANCE</span></h2><div class="h-1 w-24 bg-gradient-to-r from-lux-gold to-transparent mb-8"></div></div><div class="reveal glass-panel p-2 md:p-12 rounded-2xl relative mb-0 w-full md:w-[50vw]"><p class="text-lg text-gray-300 leading-relaxed mb-6 font-light text-justify" style="padding-left:10px;padding-right:10px"><span class="text-4xl text-lux-gold font-display mr-2">C</span>elegance is not just a series of events; it’s an experience that goes far beyond that. The anticipation leading up to the marquee event of our college is something that must be seen and believed. Every year, over 6,000 students from various branches and streams come together to celebrate and enjoy this wonderful array of cultural events. It provides students with an opportunity to interact, bond, and create memories through fun games and activities, building connections that will be cherished for a lifetime.</p><p class="text-lg text-gray-300 leading-relaxed font-light text-justify">This two-day extravaganza is packed with ecstatic performances, adrenaline-pumping competitions, and joyful laughter echoing all around. The event’s buildup is nothing short of spectacular, with teasers and trailers flooding social media, flash mobs introducing events across campus, and organizing teams working tirelessly to complete preparations. All this hard work and enthusiasm culminates under a star-lit sky and a vibrant stage, making these two days truly unforgettable. In the end, it can be said that Celegance is not just an event to experience but a celebration to live and cherish.</p><div class="absolute -top-6 -right-6 text-9xl text-white/5 font-display">”</div></div></div></section><section id="gallery" class="py-24 relative bg-black"><div class="container mx-auto px-6 mb-16"><h2 class="reveal font-display text-4xl md:text-6xl text-center"><span class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white">Gallery</span></h2></div><div class="relative flex overflow-x-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]"><div class="py-12 flex animate-infinite-scroll whitespace-nowrap"><div class="flex gap-4 md:gap-8 mx-2 md:mx-4 items-center"><img src="./gallery/1.JPG" alt="Gallery 1" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg"> <img src="./gallery/2.JPG" alt="Gallery 2" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg"> <img src="./gallery/3.JPG" alt="Gallery 3" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg"> <img src="./gallery/4.JPG" alt="Gallery 4" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg"> <img src="./gallery/5.JPG" alt="Gallery 5" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg"> <img src="./gallery/6.JPG" alt="Gallery 6" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg"> <img src="./gallery/7.JPG" alt="Gallery 7" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg"></div></div></div></section><section id="events" class="py-24 relative"><div class="container mx-auto px-6 mb-16"><h2 class="reveal font-display text-4xl md:text-6xl text-center"><span class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white">Events</span></h2></div><div id="eventsContainer" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 px-4 md:px-6 pb-24 container mx-auto"></div></section><section id="schedule" class="py-24 container mx-auto px-6"><h2 class="reveal font-display text-center text-4xl md:text-6xl mb-16">The Timeline</h2><div class="grid md:grid-cols-2 gap-8 md:gap-16 max-w-5xl mx-auto"><div class="reveal glass-panel rounded-xl p-8 border-t-4 border-t-lux-gold"><h3 class="text-3xl font-display mb-2 text-white">Day 01</h3><p class="text-gray-400 mb-8">February 06, 2026</p><div class="space-y-8 relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-[1px] before:bg-white/10"><div class="pl-8 relative"><span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-lux-gold shadow-[0_0_10px_#D4AF37]"></span> <span class="text-lux-gold font-bold text-sm block mb-1">10:00 AM</span><h4 class="text-xl font-bold">Grand Opening Ceremony</h4><p class="text-sm text-gray-500 mt-1">SC Bhadra Auditorium</p></div><div class="pl-8 relative"><span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span> <span class="text-gray-400 font-bold text-sm block mb-1">12:00 PM</span><h4 class="text-xl font-bold">Event Kickoff</h4><p class="text-sm text-gray-500 mt-1">Respective Event Venue</p></div><div class="pl-8 relative"><span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span> <span class="text-gray-400 font-bold text-sm block mb-1">07:00 PM</span><h4 class="text-xl font-bold">Cultural Night</h4><p class="text-sm text-gray-500 mt-1">OLD DSW Ground</p></div></div></div><div class="reveal delay-200 glass-panel rounded-xl p-8 border-t-4 border-t-purple-500"><h3 class="text-3xl font-display mb-2 text-white">Day 02</h3><p class="text-gray-400 mb-8">February 07, 2026</p><div class="space-y-8 relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-[1px] before:bg-white/10"><div class="pl-8 relative"><span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-purple-500"></span> <span class="text-purple-400 font-bold text-sm block mb-1">10:00 AM</span><h4 class="text-xl font-bold">Event Finals</h4><p class="text-sm text-gray-500 mt-1">Respective Event Venue</p></div><div class="pl-8 relative"><span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span> <span class="text-gray-400 font-bold text-sm block mb-1">03:00 PM</span><h4 class="text-xl font-bold">Result Announcement</h4><p class="text-sm text-gray-500 mt-1">Respective Event Venue</p></div><div class="pl-8 relative"><span class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-lux-gold shadow-[0_0_10px_#D4AF37]"></span> <span class="text-lux-gold font-bold text-sm block mb-1">07:00 PM</span><h4 class="text-xl font-bold">Cultural Night</h4><p class="text-sm text-gray-500 mt-1">OLD DSW Ground</p></div></div></div></div></section><section id="contact" class="pt-2 md:pb-10 md:pt-10 relative"><div class="container mx-auto px-6 relative z-10"><div class="reveal glass-panel max-w-3xl mx-auto rounded-3xl p-8 md:p-12 text-center border border-white/10"><h2 class="font-display text-4xl mb-4 contacth2">Partner With Us</h2><p class="text-gray-400 mb-8">Contact to become a Sponsor</p><form id="partnerForm" class="space-y-4 text-left"><div class="grid md:grid-cols-2 gap-4"><input id="companyName" type="text" placeholder="Company Name" class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500"> <input id="email" type="email" placeholder="Email Address" class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500"></div><input id="mobileno" type="number" placeholder="Mobile Number" class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500 appearance-none"> <textarea id="message" rows="4" placeholder="Your Message" class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500 resize-none"></textarea> <button type="button" onclick="validateAndSubmit()" class="w-full bg-gradient-to-r from-lux-gold to-[#F3E5AB] text-black font-bold uppercase tracking-widest py-4 rounded-lg hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform active:scale-95">Submit</button></form></div></div></section><footer id="footer" class="w-full border-t border-white/10 bg-black/20 backdrop-blur-md mt-10"><div class="container mx-auto px-6 py-8"><div class="flex flex-col md:flex-row items-left justify-between gap-6"><div class="flex items-center gap-3 justify-between"><span class="text-gray-400 text-sm font-light tracking-wide">Follow us to know more </span><a href="https://www.instagram.com/celegance_cgu/" target="_blank" class="group p-2 rounded-full bg-white/5 border border-white/5 hover:border-[#F3E5AB]/50 hover:bg-[#F3E5AB]/10 transition-all duration-300"><i data-lucide="instagram" class="w-4 h-4 text-gray-300 group-hover:text-[#F3E5AB] transition-colors"></i></a></div><div class="flex items-center gap-3 justify-between"><p class="text-gray-400 text-sm font-light tracking-wide text-left">Developed & Managed By,<br><span class="text-white font-medium">Keshav Abhishek</span></p><a href="https://github.com/keshavabhishek" target="_blank" class="group p-2 rounded-full bg-white/5 border border-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300"><i data-lucide="github" class="w-4 h-4 text-gray-300 group-hover:text-white transition-colors"></i></a></div></div></div></footer><script src="./sc.js" defer="defer"></script><script defer="defer">let curtain=document.getElementById("curtain"),revealBtn=document.getElementById("revealBtn");revealBtn.addEventListener("click",()=>{document.body.classList.remove("no-scroll"),curtain.style.transition="opacity 1s ease, transform 1s ease",curtain.style.opacity="0",curtain.style.transform="translateY(-100px)",setTimeout(()=>{curtain.remove()},1e3)})</script><script>lucide.createIcons()</script></body></html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celegance 2026</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="./src/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener('contextmenu', e => e.preventDefault());
+    </script>
+</head>
+
+<body
+    class="bg-lux-dark text-white font-body antialiased overflow-x-hidden selection:bg-lux-gold selection:text-black relative">
+    <div id="toast-container" class="fixed top-24 right-6 z-[100] flex flex-col gap-4 pointer-events-none"></div>
+
+    <div id="loader"
+        class="fixed inset-0 z-[9999] bg-black flex items-center justify-center transition-opacity duration-700">
+        <div class="text-center">
+            <img src="./src/ClogoWhite.png" alt="" class="animate-pulse" id="whiteLogoOnLoad">
+            <p class="text-base text-gray-500 mt-4 tracking-widest">LOADING EXPERIENCE</p>
+        </div>
+    </div>
+    <section id="curtain">
+        <div class="text-center animate-pulse">
+            <p class="text-gray-400 text-sm tracking-[0.5em] uppercase mb-4"> -- THE WAIT ENDS --</p>
+            <h2 class="text-white font-display text-3xl md:text-5xl tracking-widest">CLICK TO REVEAL</h2>
+            <div class="mt-8" id="revealBtn">
+                <svg class="w-6 h-6 text-lux-gold mx-auto animate-bounce" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 py-6">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="z-50 block">
+                <img src="./src/ClogoWhite.png" alt="Celegance Logo"
+                    class="h-20 md:h-14 w-auto object-contain hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                    id="navicon">
+            </a>
+
+            <div class="hidden md:flex items-center gap-12 glass-panel px-8 py-3 rounded-full">
+                <a href="#about"
+                    class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">About</a>
+                <a href="#gallery"
+                    class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">Gallery</a>
+                <a href="#events"
+                    class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">Events</a>
+                <a href="#schedule"
+                    class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">Schedule</a>
+                <a href="#contact"
+                    class="bg-lux-gold text-black px-6 py-2 rounded-full text-sm font-bold uppercase tracking-wide hover:bg-white hover:scale-105 transition-all">Contact
+                    Us</a>
+            </div>
+
+            <button id="menuBtn" class="md:hidden z-50 flex flex-col gap-1.5 group">
+                <span class="w-8 h-[2px] bg-white transition-transform group-hover:bg-lux-gold"></span>
+                <span
+                    class="w-6 h-[2px] bg-white ml-auto transition-transform group-hover:w-8 group-hover:bg-lux-gold"></span>
+                <span class="w-8 h-[2px] bg-white transition-transform group-hover:bg-lux-gold"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobileMenu"
+        class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
+        <div class="flex flex-col gap-8 text-center">
+            <a href="#about" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">About</a>
+            <a href="#gallery" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Gallery</a>
+            <a href="#events" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Events</a>
+            <a href="#schedule" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Schedule</a>
+            <a href="#contact" class="mobile-link text-3xl font-display text-lux-gold">Contact Us</a>
+        </div>
+    </div>
+
+    <section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <video autoplay muted loop playsinline preload="auto" class="video-bg opacity-100"
+            poster="./src/poster-image.jpg">
+            <source src="./src/web-smooth-2.mp4" type="video/mp4" media="(min-width: 769px)">
+
+            <source src="./src/cele-mobile-smooth.mp4" type="video/mp4" media="(max-width: 768px)">
+        </video>
+
+        <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-lux-dark z-0"></div>
+
+        <div class="absolute bottom-24 left-0 w-full text-center z-20 px-4">
+
+            <div class="reveal delay-300 flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+                <div class="h-[1px] w-12 bg-lux-gold hidden md:block"></div>
+                <p class="text-xl md:text-2xl font-light tracking-wide text-white">Feb 06 — 07, 2026</p>
+                <div class="h-[1px] w-12 bg-lux-gold hidden md:block"></div>
+            </div>
+
+            <div class="reveal delay-500">
+                <a href="#contact"
+                    class="group relative px-8 py-4 bg-black/40 backdrop-blur-sm border border-white/20 overflow-hidden rounded-full inline-block">
+                    <div
+                        class="absolute inset-0 w-0 bg-lux-gold transition-all duration-[250ms] ease-out group-hover:w-full opacity-10">
+                    </div>
+                    <span
+                        class="relative text-sm uppercase tracking-widest font-bold text-white group-hover:text-lux-gold transition-colors">Become
+                        a Sponsor</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
+            <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 md:py-32 relative overflow-hidden">
+        <div
+            class="absolute top-0 right-0 w-[500px] h-[500px] bg-lux-gold/5 rounded-full blur-[120px] pointer-events-none">
+        </div>
+
+        <div class="container mx-auto px-6 items-center flex flex-col md:flex-row justify-between">
+            <div class="reveal">
+                <h2 class="font-display text-5xl md:text-7xl mb-8 leading-tight">
+                    ABOUT <br><span class="text-lux-gold italic">CELEGANCE</span>
+                    <!-- <br>2026. -->
+                </h2>
+                <div class="h-1 w-24 bg-gradient-to-r from-lux-gold to-transparent mb-8"></div>
+            </div>
+            <div class="reveal glass-panel p-2 md:p-12 rounded-2xl relative mb-0 w-full md:w-[50vw]">
+                <p class="text-lg text-gray-300 leading-relaxed mb-6 font-light text-justify"
+                    style="padding-left: 10px;padding-right: 10px;">
+                    <span class="text-4xl text-lux-gold font-display mr-2">C</span>elegance is not just a series of
+                    events; it’s an experience that goes far beyond that. The anticipation leading up to the marquee
+                    event of our college is something that must be seen and believed. Every year, over 6,000
+                    students from various branches and streams come together to celebrate and enjoy this wonderful
+                    array of cultural events. It provides students with an opportunity to interact, bond, and create
+                    memories through fun games and activities, building connections that will be cherished for a
+                    lifetime.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed font-light text-justify">
+                    This two-day extravaganza is packed with ecstatic performances, adrenaline-pumping competitions,
+                    and joyful laughter echoing all around. The event’s buildup is nothing short of spectacular,
+                    with teasers and trailers flooding social media, flash mobs introducing events across campus,
+                    and organizing teams working tirelessly to complete preparations. All this hard work and
+                    enthusiasm culminates under a star-lit sky and a vibrant stage, making these two days truly
+                    unforgettable. In the end, it can be said that Celegance is not just an event to experience but
+                    a celebration to live and cherish.
+                </p>
+                <div class="absolute -top-6 -right-6 text-9xl text-white/5 font-display">”</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 relative bg-black">
+        <div class="container mx-auto px-6 mb-16">
+            <h2 class="reveal font-display text-4xl md:text-6xl text-center">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white">
+                    Gallery
+                </span>
+            </h2>
+        </div>
+
+        <div
+            class="relative flex overflow-x-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+
+            <div class="py-12 flex animate-infinite-scroll whitespace-nowrap">
+
+                <div class="flex gap-4 md:gap-8 mx-2 md:mx-4 items-center">
+                    <img src="./gallery/1.JPG" alt="Gallery 1"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/2.JPG" alt="Gallery 2"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/3.JPG" alt="Gallery 3"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/4.JPG" alt="Gallery 4"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/5.JPG" alt="Gallery 5"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/6.JPG" alt="Gallery 6"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/7.JPG" alt="Gallery 7"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-24 relative">
+        <div class="container mx-auto px-6 mb-16">
+            <h2 class="reveal font-display text-4xl md:text-6xl text-center"><span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white">Events</span></h2>
+        </div>
+
+        <div id="eventsContainer"
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 px-4 md:px-6 pb-24 container mx-auto">
+        </div>
+    </section>
+
+    <section id="schedule" class="py-24 container mx-auto px-6">
+        <h2 class="reveal font-display text-center text-4xl md:text-6xl mb-16">The Timeline</h2>
+
+        <div class="grid md:grid-cols-2 gap-8 md:gap-16 max-w-5xl mx-auto">
+            <div class="reveal glass-panel rounded-xl p-8 border-t-4 border-t-lux-gold">
+                <h3 class="text-3xl font-display mb-2 text-white">Day 01</h3>
+                <p class="text-gray-400 mb-8">February 06, 2026</p>
+
+                <div
+                    class="space-y-8 relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-[1px] before:bg-white/10">
+                    <div class="pl-8 relative">
+                        <span
+                            class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-lux-gold shadow-[0_0_10px_#D4AF37]"></span>
+                        <span class="text-lux-gold font-bold text-sm block mb-1">10:00 AM</span>
+                        <h4 class="text-xl font-bold">Grand Opening Ceremony</h4>
+                        <p class="text-sm text-gray-500 mt-1">SC Bhadra Auditorium</p>
+                    </div>
+                    <div class="pl-8 relative">
+                        <span
+                            class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span>
+                        <span class="text-gray-400 font-bold text-sm block mb-1">12:00 PM</span>
+                        <h4 class="text-xl font-bold">Event Kickoff</h4>
+                        <p class="text-sm text-gray-500 mt-1">Respective Event Venue</p>
+                    </div>
+                    <div class="pl-8 relative">
+                        <span
+                            class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span>
+                        <span class="text-gray-400 font-bold text-sm block mb-1">07:00 PM</span>
+                        <h4 class="text-xl font-bold">Cultural Night</h4>
+                        <p class="text-sm text-gray-500 mt-1">OLD DSW Ground</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reveal delay-200 glass-panel rounded-xl p-8 border-t-4 border-t-purple-500">
+                <h3 class="text-3xl font-display mb-2 text-white">Day 02</h3>
+                <p class="text-gray-400 mb-8">February 07, 2026</p>
+
+                <div
+                    class="space-y-8 relative before:absolute before:left-[7px] before:top-2 before:bottom-2 before:w-[1px] before:bg-white/10">
+                    <div class="pl-8 relative">
+                        <span
+                            class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-purple-500"></span>
+                        <span class="text-purple-400 font-bold text-sm block mb-1">10:00 AM</span>
+                        <h4 class="text-xl font-bold">Event Finals</h4>
+                        <p class="text-sm text-gray-500 mt-1">Respective Event Venue</p>
+                    </div>
+                    <div class="pl-8 relative">
+                        <span
+                            class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span>
+                        <span class="text-gray-400 font-bold text-sm block mb-1">03:00 PM</span>
+                        <h4 class="text-xl font-bold">Result Announcement</h4>
+                        <p class="text-sm text-gray-500 mt-1">Respective Event Venue</p>
+                    </div>
+                    <div class="pl-8 relative">
+                        <span
+                            class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-lux-gold shadow-[0_0_10px_#D4AF37]"></span>
+                        <span class="text-lux-gold font-bold text-sm block mb-1">07:00 PM</span>
+                        <h4 class="text-xl font-bold">Cultural Night</h4>
+                        <p class="text-sm text-gray-500 mt-1">OLD DSW Ground</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="pt-2 md:pb-10 md:pt-10 relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div
+                class="reveal glass-panel max-w-3xl mx-auto rounded-3xl p-8 md:p-12 text-center border border-white/10">
+                <h2 class="font-display text-4xl mb-4 contacth2">Partner With Us</h2>
+                <p class="text-gray-400 mb-8">Contact to become a Sponsor</p>
+
+                <form id="partnerForm" class="space-y-4 text-left">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input id="companyName" type="text" placeholder="Company Name"
+                            class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500">
+
+                        <input id="email" type="email" placeholder="Email Address"
+                            class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500">
+                    </div>
+
+                    <input id="mobileno" type="number" placeholder="Mobile Number"
+                        class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500 appearance-none">
+
+                    <textarea id="message" rows="4" placeholder="Your Message"
+                        class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500 resize-none"></textarea>
+
+                    <button type="button" onclick="validateAndSubmit()"
+                        class="w-full bg-gradient-to-r from-lux-gold to-[#F3E5AB] text-black font-bold uppercase tracking-widest py-4 rounded-lg hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform active:scale-95">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- <div class="absolute bottom-24 left-0 w-full text-center z-20 px-4">
+        <div class="reveal delay-500">
+            <a href="#footer"
+                class="group relative px-8 py-4 bg-black/40 backdrop-blur-sm border border-white/20 overflow-hidden rounded-full inline-block">
+                <div
+                    class="absolute inset-0 w-0 bg-lux-gold transition-all duration-[250ms] ease-out group-hover:w-full opacity-10">
+                </div>
+                <span
+                    class="relative text-sm uppercase tracking-widest font-bold text-white group-hover:text-lux-gold transition-colors">More</span>
+            </a>
+        </div>
+    </div> -->
+    <footer id="footer" class="w-full border-t border-white/10 bg-black/20 backdrop-blur-md mt-10">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row items-left justify-between gap-6">
+
+                <div class="flex items-center gap-3 justify-between">
+                    <span class="text-gray-400 text-sm font-light tracking-wide">
+                        Follow us to know more
+                    </span>
+                    <a href="https://www.instagram.com/celegance_cgu/" target="_blank"
+                        class="group p-2 rounded-full bg-white/5 border border-white/5 hover:border-[#F3E5AB]/50 hover:bg-[#F3E5AB]/10 transition-all duration-300">
+                        <i data-lucide="instagram"
+                            class="w-4 h-4 text-gray-300 group-hover:text-[#F3E5AB] transition-colors"></i>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-3 justify-between">
+                    <p class="text-gray-400 text-sm font-light tracking-wide text-left">
+                        Developed & Managed By,<br>
+                        <span class="text-white font-medium">Keshav Abhishek</span>
+                    </p>
+                    <a href="https://github.com/keshavabhishek" target="_blank"
+                        class="group p-2 rounded-full bg-white/5 border border-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300">
+                        <i data-lucide="github"
+                            class="w-4 h-4 text-gray-300 group-hover:text-white transition-colors"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="./sc.js" defer></script>
+    <script defer>
+        // LOCK SCROLL INITIALLY
+        // document.body.classList.add('no-scroll');
+
+        const curtain = document.getElementById('curtain');
+        const revealBtn = document.getElementById('revealBtn');
+
+        revealBtn.addEventListener('click', () => {
+            // Enable scrolling
+            document.body.classList.remove('no-scroll');
+
+            // Smooth exit animation
+            curtain.style.transition = 'opacity 1s ease, transform 1s ease';
+            curtain.style.opacity = '0';
+            curtain.style.transform = 'translateY(-100px)';
+
+            // Remove curtain from DOM
+            setTimeout(() => {
+                curtain.remove();
+            }, 1000);
+        });
+    </script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
