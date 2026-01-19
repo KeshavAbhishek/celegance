@@ -2,7 +2,11 @@
     --nav-height: 96px;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
+    display: none !important;
+}
+
+::-webkit-inner-spin-button {
     display: none !important;
 }
 
@@ -106,18 +110,13 @@ section[id] {
         font-size: 1.8rem !important;
     }
 
-    #navicon{
+    #navicon {
         width: 10rem;
     }
 
-    /* #about {
-                padding-top: 10vh !important;
-                border: 1px solid white;
-            } */
-
     .animate-infinite-scroll {
-  animation: infinite-scroll 4s linear infinite;
-}
+        animation: infinite-scroll 4s linear infinite;
+    }
 }
 
 .no-scroll {
@@ -133,10 +132,15 @@ section[id] {
 }
 
 @keyframes infinite-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 .animate-infinite-scroll {
-  animation: infinite-scroll 10s linear infinite;
+    animation: infinite-scroll 10s linear infinite;
 }

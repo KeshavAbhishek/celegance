@@ -89,11 +89,10 @@
     </div>
 
     <section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
-        <!-- <video autoplay muted loop playsinline class="video-bg opacity-40">
-            <source src="./src/BG.mp4" type="video/mp4">
-        </video> -->
-        <video autoplay muted loop playsinline class="video-bg opacity-100">
+        <video autoplay muted loop playsinline preload="auto" class="video-bg opacity-100"
+            poster="./src/poster-image.jpg">
             <source src="./src/web-smooth-2.mp4" type="video/mp4" media="(min-width: 769px)">
+
             <source src="./src/cele-mobile-smooth.mp4" type="video/mp4" media="(max-width: 768px)">
         </video>
 
@@ -375,64 +374,6 @@
     </script>
     <script>
         lucide.createIcons();
-    </script>
-    <!-- <script>
-        document.addEventListener('keydown', function (e) {
-            // F12
-            if (e.key === 'F12') {
-                e.preventDefault();
-            }
-
-            // Ctrl + Shift + I / J / C
-            if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) {
-                e.preventDefault();
-            }
-
-            // Ctrl + U (View Source)
-            if (e.ctrlKey && e.key === 'u') {
-                e.preventDefault();
-            }
-        });
-    </script> -->
-    <!-- <script>
-        (function () {
-            const threshold = 160;
-
-            setInterval(() => {
-                if (
-                    window.outerWidth - window.innerWidth > threshold ||
-                    window.outerHeight - window.innerHeight > threshold
-                ) {
-                    document.body.innerHTML = `
-                <div style="
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    height:100vh;
-                    background:black;
-                    color:#D4AF37;
-                    font-family:serif;
-                    font-size:2rem;
-                    letter-spacing:0.2em;">
-                    ACCESS RESTRICTED
-                </div>`;
-                }
-            }, 1000);
-        })();
-    </script> -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const link = document.getElementById('dynamicLink');
-
-            // Regular expression to check for common mobile device keywords
-            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-            if (isMobile) {
-                link.href = "#footer";   // Mobile destination
-            } else {
-                link.href = "#contact";  // Laptop/Desktop destination
-            }
-        });
     </script>
 </body>
 

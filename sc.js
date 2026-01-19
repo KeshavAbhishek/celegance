@@ -255,16 +255,22 @@ async function validateAndSubmit() {
     }
 }
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const link = document.getElementById('dynamicLink');
+document.addEventListener('keydown', function (e) {
+    // F12
+    if (e.key === 'F12') {
+        e.preventDefault();
+        showToast("ACCESS DENIED !!", "error");
+    }
 
-//     // Regular expression to check for common mobile device keywords
-//     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    // Ctrl + Shift + I / J / C
+    if (e.ctrlKey && e.shiftKey && ['I', 'J', 'C'].includes(e.key)) {
+        e.preventDefault();
+        showToast("ACCESS DENIED !!", "error");
+    }
 
-//     if (isMobile) {
-//         link.href = "#footer";   // Mobile destination
-//         // alert(isMobile);
-//     } else {
-//         link.href = "#contact";  // Laptop/Desktop destination
-//     }
-// });
+    // Ctrl + U (View Source)
+    if (e.ctrlKey && e.key === 'u') {
+        e.preventDefault();
+        showToast("ACCESS DENIED !!", "error");
+    }
+});
