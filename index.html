@@ -57,6 +57,8 @@
             <div class="hidden md:flex items-center gap-12 glass-panel px-8 py-3 rounded-full">
                 <a href="#about"
                     class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">About</a>
+                <a href="#gallery"
+                    class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">Gallery</a>
                 <a href="#events"
                     class="text-sm uppercase tracking-widest hover:text-lux-gold transition-colors">Events</a>
                 <a href="#schedule"
@@ -79,6 +81,7 @@
         class="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-500">
         <div class="flex flex-col gap-8 text-center">
             <a href="#about" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">About</a>
+            <a href="#gallery" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Gallery</a>
             <a href="#events" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Events</a>
             <a href="#schedule" class="mobile-link text-3xl font-display text-white hover:text-lux-gold">Schedule</a>
             <a href="#contact" class="mobile-link text-3xl font-display text-lux-gold">Contact Us</a>
@@ -163,9 +166,37 @@
         </div>
     </section>
 
+    <section id="gallery" class="py-24 relative bg-black">
+        <div class="container mx-auto px-6 mb-16">
+            <h2 class="reveal font-display text-4xl md:text-6xl text-center">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white">
+                    Gallery
+                </span>
+            </h2>
+        </div>
+
+        <div
+            class="relative flex overflow-x-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+
+            <div class="py-12 flex animate-infinite-scroll whitespace-nowrap [animation-duration:10s] md:[animation-duration:25s]">
+    
+    <div class="flex gap-4 md:gap-8 mx-2 md:mx-4 items-center">
+        <img src="./gallery/1.JPG" alt="Gallery 1" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+        <img src="./gallery/2.JPG" alt="Gallery 2" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+        <img src="./gallery/3.JPG" alt="Gallery 3" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+        <img src="./gallery/4.JPG" alt="Gallery 4" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+        <img src="./gallery/5.JPG" alt="Gallery 5" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+        <img src="./gallery/6.JPG" alt="Gallery 6" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+        <img src="./gallery/7.JPG" alt="Gallery 7" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+    </div>
+
+</div>
+        </div>
+    </section>
+
     <section id="events" class="py-24 relative">
         <div class="container mx-auto px-6 mb-16">
-            <h2 class="reveal font-display text-4xl md:text-6xl text-center">Signature <span
+            <h2 class="reveal font-display text-4xl md:text-6xl text-center"><span
                     class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white">Events</span></h2>
         </div>
 
@@ -189,21 +220,21 @@
                             class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-lux-gold shadow-[0_0_10px_#D4AF37]"></span>
                         <span class="text-lux-gold font-bold text-sm block mb-1">10:00 AM</span>
                         <h4 class="text-xl font-bold">Grand Opening Ceremony</h4>
-                        <p class="text-sm text-gray-500 mt-1">Main Auditorium</p>
+                        <p class="text-sm text-gray-500 mt-1">SC Bhadra Auditorium</p>
                     </div>
                     <div class="pl-8 relative">
                         <span
                             class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span>
-                        <span class="text-gray-400 font-bold text-sm block mb-1">02:00 PM</span>
-                        <h4 class="text-xl font-bold">Hackathon Kickoff</h4>
-                        <p class="text-sm text-gray-500 mt-1">Tech Park</p>
+                        <span class="text-gray-400 font-bold text-sm block mb-1">12:00 PM</span>
+                        <h4 class="text-xl font-bold">Event Kickoff</h4>
+                        <p class="text-sm text-gray-500 mt-1">Respective Event Venue</p>
                     </div>
                     <div class="pl-8 relative">
                         <span
                             class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span>
-                        <span class="text-gray-400 font-bold text-sm block mb-1">06:00 PM</span>
+                        <span class="text-gray-400 font-bold text-sm block mb-1">07:00 PM</span>
                         <h4 class="text-xl font-bold">Cultural Night</h4>
-                        <p class="text-sm text-gray-500 mt-1">Open Air Theatre</p>
+                        <p class="text-sm text-gray-500 mt-1">OLD DSW Ground</p>
                     </div>
                 </div>
             </div>
@@ -218,22 +249,22 @@
                         <span
                             class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-purple-500"></span>
                         <span class="text-purple-400 font-bold text-sm block mb-1">10:00 AM</span>
-                        <h4 class="text-xl font-bold">Robotics Finals</h4>
-                        <p class="text-sm text-gray-500 mt-1">Central Arena</p>
+                        <h4 class="text-xl font-bold">Event Finals</h4>
+                        <p class="text-sm text-gray-500 mt-1">Respective Event Venue</p>
                     </div>
                     <div class="pl-8 relative">
                         <span
                             class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-gray-600"></span>
-                        <span class="text-gray-400 font-bold text-sm block mb-1">04:00 PM</span>
-                        <h4 class="text-xl font-bold">Fashion Show</h4>
-                        <p class="text-sm text-gray-500 mt-1">Main Stage</p>
+                        <span class="text-gray-400 font-bold text-sm block mb-1">03:00 PM</span>
+                        <h4 class="text-xl font-bold">Result Announcement</h4>
+                        <p class="text-sm text-gray-500 mt-1">Respective Event Venue</p>
                     </div>
                     <div class="pl-8 relative">
                         <span
                             class="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-lux-dark border border-lux-gold shadow-[0_0_10px_#D4AF37]"></span>
-                        <span class="text-lux-gold font-bold text-sm block mb-1">08:00 PM</span>
-                        <h4 class="text-xl font-bold">Celebrity Night</h4>
-                        <p class="text-sm text-gray-500 mt-1">Stadium</p>
+                        <span class="text-lux-gold font-bold text-sm block mb-1">07:00 PM</span>
+                        <h4 class="text-xl font-bold">Cultural Night</h4>
+                        <p class="text-sm text-gray-500 mt-1">OLD DSW Ground</p>
                     </div>
                 </div>
             </div>
@@ -270,7 +301,7 @@
             </div>
         </div>
     </section>
-    <footer class="w-full border-t border-white/10 bg-black/20 backdrop-blur-md mt-0">
+    <footer id="footer" class="w-full border-t border-white/10 bg-black/20 backdrop-blur-md mt-0">
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row items-left justify-between gap-6">
 
@@ -287,7 +318,7 @@
 
                 <div class="flex items-center gap-3">
                     <p class="text-gray-400 text-sm font-light tracking-wide text-left">
-                        Developed & Managed By,
+                        Developed & Managed By,<br>
                         <span class="text-white font-medium">Keshav Abhishek</span>
                     </p>
                     <a href="https://github.com/keshavabhishek" target="_blank"
@@ -303,7 +334,7 @@
     <script src="./sc.js" defer></script>
     <script defer>
         // LOCK SCROLL INITIALLY
-        document.body.classList.add('no-scroll');
+        // document.body.classList.add('no-scroll');
 
         const curtain = document.getElementById('curtain');
         const revealBtn = document.getElementById('revealBtn');

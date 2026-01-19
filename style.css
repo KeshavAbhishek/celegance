@@ -2,6 +2,10 @@
     --nav-height: 96px;
 }
 
+::-webkit-scrollbar{
+    display: none !important;
+}
+
 section[id] {
     scroll-margin-top: var(--nav-height);
 }
@@ -110,6 +114,10 @@ section[id] {
                 padding-top: 10vh !important;
                 border: 1px solid white;
             } */
+
+    .animate-infinite-scroll {
+  animation: infinite-scroll 4s linear infinite;
+}
 }
 
 .no-scroll {
@@ -124,6 +132,11 @@ section[id] {
     user-select: none;
 }
 
-#footer{
-    border: 1px solid red; padding: 10px; font-size: 1.0rem; position: absolute; bottom: 10px; left: 50%; transform: translate(-50%,0); width: 90vw;
+@keyframes infinite-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-infinite-scroll {
+  animation: infinite-scroll 10s linear infinite;
 }
