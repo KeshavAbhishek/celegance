@@ -15,13 +15,14 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('contextmenu', e => e.preventDefault());
     </script>
-
 </head>
 
-<body class="bg-lux-dark text-white font-body antialiased overflow-x-hidden selection:bg-lux-gold selection:text-black">
+<body
+    class="bg-lux-dark text-white font-body antialiased overflow-x-hidden selection:bg-lux-gold selection:text-black relative">
     <div id="toast-container" class="fixed top-24 right-6 z-[100] flex flex-col gap-4 pointer-events-none"></div>
 
     <div id="loader"
@@ -138,7 +139,8 @@
                 <div class="h-1 w-24 bg-gradient-to-r from-lux-gold to-transparent mb-8"></div>
             </div>
             <div class="reveal glass-panel p-2 md:p-12 rounded-2xl relative mb-0 w-full md:w-[50vw]">
-                <p class="text-lg text-gray-300 leading-relaxed mb-6 font-light text-justify" style="padding-left: 10px;padding-right: 10px;">
+                <p class="text-lg text-gray-300 leading-relaxed mb-6 font-light text-justify"
+                    style="padding-left: 10px;padding-right: 10px;">
                     <span class="text-4xl text-lux-gold font-display mr-2">C</span>elegance is not just a series of
                     events; it’s an experience that goes far beyond that. The anticipation leading up to the marquee
                     event of our college is something that must be seen and believed. Every year, over 6,000
@@ -268,6 +270,36 @@
             </div>
         </div>
     </section>
+    <footer class="w-full border-t border-white/10 bg-black/20 backdrop-blur-md mt-0">
+    <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+            <div class="flex items-center gap-3">
+                <span class="text-gray-400 text-sm font-light tracking-wide">
+                    Follow us to know more
+                </span>
+                <a href="https://www.instagram.com/celegance_cgu/" target="_blank"
+                   class="group p-2 rounded-full bg-white/5 border border-white/5 hover:border-[#F3E5AB]/50 hover:bg-[#F3E5AB]/10 transition-all duration-300">
+                    <i data-lucide="instagram"
+                       class="w-4 h-4 text-gray-300 group-hover:text-[#F3E5AB] transition-colors"></i>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <p class="text-gray-400 text-sm font-light tracking-wide text-right">
+                    Developed & Managed By, 
+                    <span class="text-white font-medium">Keshav Abhishek</span>
+                </p>
+                <a href="https://github.com/keshavabhishek" target="_blank"
+                   class="group p-2 rounded-full bg-white/5 border border-white/5 hover:border-white/30 hover:bg-white/10 transition-all duration-300">
+                    <i data-lucide="github"
+                       class="w-4 h-4 text-gray-300 group-hover:text-white transition-colors"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</footer>
     <script src="./sc.js" defer></script>
     <script defer>
         // LOCK SCROLL INITIALLY
@@ -290,6 +322,9 @@
                 curtain.remove();
             }, 1000);
         });
+    </script>
+    <script>
+        lucide.createIcons();
     </script>
     <!-- <script>
         document.addEventListener('keydown', function (e) {

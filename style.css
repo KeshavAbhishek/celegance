@@ -123,3 +123,7 @@ section[id] {
     -webkit-user-select: none;
     user-select: none;
 }
+
+#footer{
+    border: 1px solid red; padding: 10px; font-size: 1.0rem; position: absolute; bottom: 10px; left: 50%; transform: translate(-50%,0); width: 90vw;
+}
