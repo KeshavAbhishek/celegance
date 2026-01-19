@@ -178,19 +178,26 @@
         <div
             class="relative flex overflow-x-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
 
-            <div class="py-12 flex animate-infinite-scroll whitespace-nowrap [animation-duration:10s] md:[animation-duration:25s]">
-    
-    <div class="flex gap-4 md:gap-8 mx-2 md:mx-4 items-center">
-        <img src="./gallery/1.JPG" alt="Gallery 1" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
-        <img src="./gallery/2.JPG" alt="Gallery 2" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
-        <img src="./gallery/3.JPG" alt="Gallery 3" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
-        <img src="./gallery/4.JPG" alt="Gallery 4" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
-        <img src="./gallery/5.JPG" alt="Gallery 5" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
-        <img src="./gallery/6.JPG" alt="Gallery 6" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
-        <img src="./gallery/7.JPG" alt="Gallery 7" class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
-    </div>
+            <div class="py-12 flex animate-infinite-scroll whitespace-nowrap">
 
-</div>
+                <div class="flex gap-4 md:gap-8 mx-2 md:mx-4 items-center">
+                    <img src="./gallery/1.JPG" alt="Gallery 1"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/2.JPG" alt="Gallery 2"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/3.JPG" alt="Gallery 3"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/4.JPG" alt="Gallery 4"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/5.JPG" alt="Gallery 5"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/6.JPG" alt="Gallery 6"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                    <img src="./gallery/7.JPG" alt="Gallery 7"
+                        class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -271,7 +278,7 @@
         </div>
     </section>
 
-    <section id="contact" class="py-24 relative">
+    <section id="contact" class="pt-2 md:pb-10 md:pt-10 relative">
         <div class="container mx-auto px-6 relative z-10">
             <div
                 class="reveal glass-panel max-w-3xl mx-auto rounded-3xl p-8 md:p-12 text-center border border-white/10">
@@ -301,11 +308,23 @@
             </div>
         </div>
     </section>
-    <footer id="footer" class="w-full border-t border-white/10 bg-black/20 backdrop-blur-md mt-0">
+    <!-- <div class="absolute bottom-24 left-0 w-full text-center z-20 px-4">
+        <div class="reveal delay-500">
+            <a href="#footer"
+                class="group relative px-8 py-4 bg-black/40 backdrop-blur-sm border border-white/20 overflow-hidden rounded-full inline-block">
+                <div
+                    class="absolute inset-0 w-0 bg-lux-gold transition-all duration-[250ms] ease-out group-hover:w-full opacity-10">
+                </div>
+                <span
+                    class="relative text-sm uppercase tracking-widest font-bold text-white group-hover:text-lux-gold transition-colors">More</span>
+            </a>
+        </div>
+    </div> -->
+    <footer id="footer" class="w-full border-t border-white/10 bg-black/20 backdrop-blur-md mt-10">
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row items-left justify-between gap-6">
 
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3 justify-between">
                     <span class="text-gray-400 text-sm font-light tracking-wide">
                         Follow us to know more
                     </span>
@@ -316,7 +335,7 @@
                     </a>
                 </div>
 
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-3 justify-between">
                     <p class="text-gray-400 text-sm font-light tracking-wide text-left">
                         Developed & Managed By,<br>
                         <span class="text-white font-medium">Keshav Abhishek</span>
@@ -401,6 +420,20 @@
             }, 1000);
         })();
     </script> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const link = document.getElementById('dynamicLink');
+
+            // Regular expression to check for common mobile device keywords
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                link.href = "#footer";   // Mobile destination
+            } else {
+                link.href = "#contact";  // Laptop/Desktop destination
+            }
+        });
+    </script>
 </body>
 
 </html>

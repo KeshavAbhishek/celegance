@@ -254,3 +254,17 @@ async function validateAndSubmit() {
         showToast("Failed to connect to server.", "error");
     }
 }
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const link = document.getElementById('dynamicLink');
+
+//     // Regular expression to check for common mobile device keywords
+//     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+//     if (isMobile) {
+//         link.href = "#footer";   // Mobile destination
+//         // alert(isMobile);
+//     } else {
+//         link.href = "#contact";  // Laptop/Desktop destination
+//     }
+// });
