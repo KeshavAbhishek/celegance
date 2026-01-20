@@ -1,5 +1,10 @@
 :root {
     --nav-height: 96px;
+    html, body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 }
 
 ::-webkit-scrollbar {
@@ -100,6 +105,25 @@ section[id] {
     align-items: center;
     justify-content: center;
 }
+
+
+
+/* Navbar collapse state */
+.nav-collapsed {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-40px) scale(0.9);
+    pointer-events: none;
+}
+
+.fab-visible {
+    opacity: 1 !important;
+    visibility: visible;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+
 
 @media screen and (max-width: 768px) {
     #whiteLogoOnLoad {
