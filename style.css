@@ -114,8 +114,20 @@ section[id] {
         width: 10rem;
     }
 
-    .animate-infinite-scroll {
+    /* .animate-infinite-scroll {
         animation: infinite-scroll 4s linear infinite;
+    } */
+
+    .InMobileHeading{
+        font-size: 4rem !important;
+    }
+
+    .InMobileHeadingTimeLine{
+        font-size: 2.5rem !important;
+    }
+
+    .image-carousel-container{
+        top: 30dvh;
     }
 }
 
@@ -143,4 +155,30 @@ section[id] {
 
 .animate-infinite-scroll {
     animation: infinite-scroll 10s linear infinite;
+}
+
+
+/* === NEW: About Me Image Carousel === */
+.image-carousel-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.image-carousel {
+    display: flex;
+    width: fit-content;
+    /* animation: scroll 7s linear infinite; */
+}
+
+.image-carousel img {
+    width: 300px;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    margin: 0 10px;
+    border-radius: 0.5rem;
 }

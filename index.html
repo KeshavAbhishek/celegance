@@ -89,8 +89,7 @@
     </div>
 
     <section class="relative h-screen w-full overflow-hidden flex items-center justify-center">
-        <video autoplay muted loop playsinline preload="auto" class="video-bg opacity-100"
-            poster="./src/poster-image.jpg">
+        <video autoplay muted loop playsinline preload="auto" class="video-bg opacity-100">
             <source src="./src/web-smooth-2.mp4" type="video/mp4" media="(min-width: 769px)">
 
             <source src="./src/cele-mobile-smooth.mp4" type="video/mp4" media="(max-width: 768px)">
@@ -127,7 +126,7 @@
         </div>
     </section>
 
-    <section id="about" class="py-24 md:py-32 relative overflow-hidden">
+    <section id="about" class="py-24 md:py-32 relative overflow-hidden min-h-screen">
         <div
             class="absolute top-0 right-0 w-[500px] h-[500px] bg-lux-gold/5 rounded-full blur-[120px] pointer-events-none">
         </div>
@@ -165,16 +164,16 @@
         </div>
     </section>
 
-    <section id="gallery" class="py-24 relative bg-black">
+    <!-- <section id="gallery" class="py-24 relative bg-black">
         <div class="container mx-auto px-6 mb-16">
             <h2 class="reveal font-display text-4xl md:text-6xl text-center">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white">
                     Gallery
                 </span>
             </h2>
-        </div>
+        </div> -->
 
-        <div
+    <!-- <div
             class="relative flex overflow-x-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
 
             <div class="py-12 flex animate-infinite-scroll whitespace-nowrap">
@@ -196,14 +195,67 @@
                         class="h-32 md:h-64 w-auto rounded-lg object-cover shadow-lg" />
                 </div>
 
+            </div> -->
+    <!-- <div class="image-carousel-container">
+            <div class="image-carousel">
+                <img src="./gallery/1.JPG" alt="Gallery 1"/>
+                <img src="./gallery/2.JPG" alt="Gallery 2"/>
+                <img src="./gallery/3.JPG" alt="Gallery 3"/>
+                <img src="./gallery/4.JPG" alt="Gallery 4"/>
+                <img src="./gallery/5.JPG" alt="Gallery 5"/>
+                <img src="./gallery/6.JPG" alt="Gallery 6"/>
+                <img src="./gallery/7.JPG" alt="Gallery 7"/>
+                <img src="./gallery/1.JPG" alt="Gallery 1"/>
+                <img src="./gallery/2.JPG" alt="Gallery 2"/>
+                <img src="./gallery/3.JPG" alt="Gallery 3"/>
+                <img src="./gallery/4.JPG" alt="Gallery 4"/>
+                <img src="./gallery/5.JPG" alt="Gallery 5"/>
+                <img src="./gallery/6.JPG" alt="Gallery 6"/>
+                <img src="./gallery/7.JPG" alt="Gallery 7"/>
             </div>
         </div>
+        </div>
+    </section> -->
+
+    <section id="gallery" class="min-h-screen w-full flex items-center py-20 border-[#000] border-[1px] relative">
+        <!-- <div class="scroll-trigger"></div> -->
+        <div class="flex flex-col gap-12 items-center w-full">
+
+            <div class="container mx-auto px-6 mb-8 absolute top-[10dvh]">
+                <h2 class="reveal font-display text-center">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white text-lg InMobileHeading lg:text-[5rem]">
+                        <b>G</b>allery
+                    </span>
+                </h2>
+            </div>
+
+            <div class="image-carousel-container w-[75vw] absolute lg:top-[35dvh]">
+                <div class="image-carousel">
+                    <img src="./gallery/1.JPG" alt="Gallery 1" />
+                    <img src="./gallery/2.JPG" alt="Gallery 2" />
+                    <img src="./gallery/3.JPG" alt="Gallery 3" />
+                    <img src="./gallery/4.JPG" alt="Gallery 4" />
+                    <img src="./gallery/5.JPG" alt="Gallery 5" />
+                    <img src="./gallery/6.JPG" alt="Gallery 6" />
+                    <img src="./gallery/7.JPG" alt="Gallery 7" />
+                    <img src="./gallery/1.JPG" alt="Gallery 1" />
+                    <img src="./gallery/2.JPG" alt="Gallery 2" />
+                    <img src="./gallery/3.JPG" alt="Gallery 3" />
+                    <img src="./gallery/4.JPG" alt="Gallery 4" />
+                    <img src="./gallery/5.JPG" alt="Gallery 5" />
+                    <img src="./gallery/6.JPG" alt="Gallery 6" />
+                    <img src="./gallery/7.JPG" alt="Gallery 7" />
+                </div>
+            </div>
+
+        </div>
+
     </section>
 
     <section id="events" class="py-24 relative">
         <div class="container mx-auto px-6 mb-16">
             <h2 class="reveal font-display text-4xl md:text-6xl text-center"><span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white">Events</span></h2>
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white md:text-[5rem] InMobileHeading"><b>E</b>vents</span></h2>
         </div>
 
         <div id="eventsContainer"
@@ -211,8 +263,8 @@
         </div>
     </section>
 
-    <section id="schedule" class="py-24 container mx-auto px-6">
-        <h2 class="reveal font-display text-center text-4xl md:text-6xl mb-16">The Timeline</h2>
+    <section id="schedule" class="py-24 container mx-auto px-6 min-h-screen">
+        <h2 class="reveal font-display text-center text-4xl md:text-6xl mb-16 text-transparent bg-clip-text bg-gradient-to-r from-lux-gold to-white InMobileHeadingTimeLine"><b>T</b>he <b>T</b>imeline</h2>
 
         <div class="grid md:grid-cols-2 gap-8 md:gap-16 max-w-5xl mx-auto">
             <div class="reveal glass-panel rounded-xl p-8 border-t-4 border-t-lux-gold">
@@ -352,7 +404,7 @@
     <script src="./sc.js" defer></script>
     <script defer>
         // LOCK SCROLL INITIALLY
-        document.body.classList.add('no-scroll');
+        // document.body.classList.add('no-scroll');
 
         const curtain = document.getElementById('curtain');
         const revealBtn = document.getElementById('revealBtn');
