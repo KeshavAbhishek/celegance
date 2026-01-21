@@ -65,10 +65,8 @@ function loadFrame(dir, i) {
     const base =
       `https://celegance.live/${dir}/frame_${String(i).padStart(4, "0")}`;
 
-    img.src = `${base}.webp`;
-    img.onerror = () => {
-      img.src = `${base}.jpg`;
-    };
+    // img.src = `${base}.webp`;
+    img.src = `${base}.jpg`;
 
     img.onload = () => resolve(img);
   });
