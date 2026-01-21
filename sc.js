@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // --- FIX 3: Only reset and show success if it actually worked ---
                 document.getElementById('partnerForm').reset();
                 showToast("Registration Submitted Successfully!", "success");
+                document.getElementById("sumbitbutton").innerText="SUBMIT";
                 // alert("Message sent successfully!");
             } else {
                 showToast("Server error. Please try again.", "error");
@@ -346,6 +347,18 @@ document.addEventListener('DOMContentLoaded', () => {
         animate();
     }
 
+    function isMobile() {
+        return /android|iphone|ipod|blackberry|iemobile|opera mini/i
+            .test(navigator.userAgent)
+            ? 1
+            : 0;
+    }
+
+    document.getElementById("sumbitbutton").addEventListener("click",()=>{
+        document.getElementById("sumbitbutton").innerText="*-*-*-*";
+        validateAndSubmit();
+    })
+
     // --- Initial Setup ---
     // Create a list of all images to load upfront
     const imagesToPreload = [
@@ -377,26 +390,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const footer = document.getElementById("footer");
-    // const navbar = document.getElementById("navbar");
-    const fab = document.getElementById("nav-fab");
+// const navbar = document.getElementById("navbar");
+const fab = document.getElementById("nav-fab");
 
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-            if (entry.isIntersecting) {
-                navbar.classList.add("nav-collapsed");
-                fab.classList.add("fab-visible");
-            } else {
-                navbar.classList.remove("nav-collapsed");
-                fab.classList.remove("fab-visible");
-            }
-        },
-        { threshold: 0.15 }
-    );
+/* Mobile detection: Mobile = 1, Others = 0 */
+function isMobile() {
+  return /android|iphone|ipod|blackberry|iemobile|opera mini/i
+    .test(navigator.userAgent)
+    ? 1
+    : 0;
+}
 
-    observer.observe(footer);
+/* Safety check */
+if (footer && navbar && fab) {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && isMobile() === 1) {
+        navbar.classList.add("nav-collapsed");
+        fab.classList.add("fab-visible");
+      } else {
+        navbar.classList.remove("nav-collapsed");
+        fab.classList.remove("fab-visible");
+      }
+    },
+    { threshold: 0.15 }
+  );
 
-    fab.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+  observer.observe(footer);
+
+  fab.addEventListener("click", () => {
+    window.scrollTo({ top: document.getElementById("navbar").style.height, behavior: "smooth" });
+  });
+}
 
 });
