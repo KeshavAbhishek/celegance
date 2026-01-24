@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Wah Wah Kya Baat Hai',
         'Sargam',
         'Bollywood Deewane'
-    ];
+    ]
 
     const eventLinks = [
         "https://docs.google.com/forms/d/e/1FAIpQLSeMTBVLH2_KNO4pqwx-3O5cUg6FGE0gQhYXhPPV6zAL7_whDA/viewform",
