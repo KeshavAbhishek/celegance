@@ -116,12 +116,12 @@ section[id] {
     pointer-events: none;
 }
 
-.fab-visible {
+/* .fab-visible {
     opacity: 1 !important;
     visibility: visible;
     transform: scale(1);
     pointer-events: auto;
-}
+} */
 
 
 

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
     tailwind.config = {
         theme: {
             extend: {
@@ -29,6 +29,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+
+    // LOCK SCROLL INITIALLY
+    document.body.classList.add('no-scroll');
+
+    const curtain = document.getElementById('curtain');
+    const revealBtn = document.getElementById('revealBtn');
+
+    revealBtn.addEventListener('click', () => {
+        // Enable scrolling
+        document.body.classList.remove('no-scroll');
+
+        // Smooth exit animation
+        curtain.style.transition = 'opacity 1s ease, transform 1s ease';
+        curtain.style.opacity = '0';
+        curtain.style.transform = 'translateY(-100px)';
+
+        // Remove curtain from DOM
+        setTimeout(() => {
+            curtain.remove();
+        }, 1000);
+    });
 
     const imageCarousel = document.querySelector('.image-carousel');
 
@@ -124,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="reveal w-full group cursor-pointer perspective delay-[${index % 4 * 100}ms]">
                 <div class="relative w-full aspect-[1/1.414] rounded-xl overflow-hidden transition-transform duration-500 group-hover:-translate-y-2 border border-white/10">
                     
-                    <img src="${imgPath}" alt="${event}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                    <img src="${imgPath}" loading="lazy" alt="${event}" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90"></div>
                     
@@ -424,10 +445,10 @@ document.addEventListener('DOMContentLoaded', () => {
             ([entry]) => {
                 if (entry.isIntersecting && isMobile() === 1) {
                     navbar.classList.add("nav-collapsed");
-                    fab.classList.add("fab-visible");
+                    // fab.classList.add("fab-visible");
                 } else {
                     navbar.classList.remove("nav-collapsed");
-                    fab.classList.remove("fab-visible");
+                    // fab.classList.remove("fab-visible");
                 }
             },
             { threshold: 0.15 }
