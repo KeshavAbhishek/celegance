@@ -394,8 +394,8 @@ document.addEventListener('DOMContentLoaded', () => {
         "./gallery/5.JPG",
         "./gallery/6.JPG",
         "./gallery/7.JPG",
-        "./src/web-smooth-2.mp4",
-        "./src/cele-mobile-smooth.mp4"
+        "./src/mobile.mp4",
+        "./src/web.mp4"
     ];
 
     // Call the preloader with the full list of images
