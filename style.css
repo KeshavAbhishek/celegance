@@ -156,9 +156,9 @@ section[id] {
 }
 
 .no-scroll {
-    overflow: hidden;
-    height: 100vh;
-    touch-action: none;
+    overflow: hidden !important;
+    height: 100vh !important;
+    touch-action: none !important;
 }
 
 * {
