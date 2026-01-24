@@ -31,25 +31,25 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // LOCK SCROLL INITIALLY
-    document.body.classList.add('no-scroll');
+    // document.body.classList.add('no-scroll');
 
-    const curtain = document.getElementById('curtain');
-    const revealBtn = document.getElementById('revealBtn');
+    // const curtain = document.getElementById('curtain');
+    // const revealBtn = document.getElementById('revealBtn');
 
-    revealBtn.addEventListener('click', () => {
-        // Enable scrolling
-        document.body.classList.remove('no-scroll');
+    // revealBtn.addEventListener('click', () => {
+    //     // Enable scrolling
+    //     document.body.classList.remove('no-scroll');
 
-        // Smooth exit animation
-        curtain.style.transition = 'opacity 1s ease, transform 1s ease';
-        curtain.style.opacity = '0';
-        curtain.style.transform = 'translateY(-100px)';
+    //     // Smooth exit animation
+    //     curtain.style.transition = 'opacity 1s ease, transform 1s ease';
+    //     curtain.style.opacity = '0';
+    //     curtain.style.transform = 'translateY(-100px)';
 
-        // Remove curtain from DOM
-        setTimeout(() => {
-            curtain.remove();
-        }, 1000);
-    });
+    //     // Remove curtain from DOM
+    //     setTimeout(() => {
+    //         curtain.remove();
+    //     }, 1000);
+    // });
 
     const imageCarousel = document.querySelector('.image-carousel');
 
@@ -440,7 +440,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     /* Safety check */
-    if (footer && navbar && fab) {
+    if (footer && navbar) {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting && isMobile() === 1) {
@@ -456,9 +456,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
         observer.observe(footer);
 
-        fab.addEventListener("click", () => {
-            window.scrollTo({ top: document.getElementById("navbar").style.height, behavior: "smooth" });
-        });
+        // fab.addEventListener("click", () => {
+        //     window.scrollTo({ top: document.getElementById("navbar").style.height, behavior: "smooth" });
+        // });
     }
 
     // ===== GALLERY LIGHTBOX LOGIC =====
