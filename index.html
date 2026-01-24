@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="./src/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         document.addEventListener('contextmenu', e => e.preventDefault());
@@ -89,7 +89,7 @@
     </div>
 
     <section class="relative h-screen w-full overflow-hidden flex items-center justify-center" >
-        <video autoplay muted loop playsinline preload="auto" class="video-bg opacity-100">
+        <video autoplay muted loop playsinline class="video-bg opacity-100" preload="metadata">
             <source src="./src/web.mp4" type="video/mp4" media="(min-width: 769px)">
             <!-- <source src="./src/cele-mobile-smooth.mp4" type="video/mp4" media="(max-width: 768px)"> -->
             <source src="./src/mobile.mp4" type="video/mp4" media="(max-width: 768px)">
