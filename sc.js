@@ -99,6 +99,21 @@ document.addEventListener('DOMContentLoaded', () => {
         'Bollywood Deewane'
     ];
 
+    const eventLinks = [
+        "https://docs.google.com/forms/d/e/1FAIpQLSeMTBVLH2_KNO4pqwx-3O5cUg6FGE0gQhYXhPPV6zAL7_whDA/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSfSXHmeEkWYYUmICF-DeG76aasIMX3ZKA1WJ-bxjVYyGgLOMA/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSfTi-yqYura0yXQZBlgkzo31Y1mWzQMGsTLuQyEYZEdftXSeA/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSc8cPlHqDZkw0YaiftZGVU-g-8LY3Ja7QqbcqYrTwUq09l6Cw/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSclgkm5etqTflpSyHtc9-MSac3RvTIjuI_wGSqyPiiq5sd8MA/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSe24qSy32k3MYSl9CfXeg5mqe7dZJpA76ooDyr9apC_tXOJLg/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSeuoZAjBYq_pItPC-znMlEmtthFIHSouPVLpNbxUgbvZZkSeQ/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSccu6Cg0QXhWPUBCxzZALfxYPLZIsdQU2OvBRdwSS48Eupk0w/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSenaIkcvw53IVtJD6e5a8jF-oel5dBn_9tb4aIjvUR2WFjnRA/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSeiXMvv-MIO3yKTNY5z5oPbYWLld2swPRdxWSQviv0nAeUgIg/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSfy3uU7cO4WgB_jPQAkPI4FHpTjgRsW7WI2GvLKJLDjCwXSww/viewform",
+        "https://docs.google.com/forms/d/e/1FAIpQLSc0IW3rXQ8m_jrsVYHJ4-YT84y6_2X8Q3L88c2oY3CXnv52BQ/viewform"
+    ]
+
     const container = document.getElementById('eventsContainer');
     let eventsHTML = '';
 
@@ -115,7 +130,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     <div class="absolute bottom-0 p-4 md:p-6 w-full">
                         
-                        <span class="text-lux-gold uppercase text-[10px] md:text-xs tracking-widest border-b border-lux-gold pb-1 shadow-black drop-shadow-md text-right registerLink">Register</span>
+                        <span class="text-lux-gold uppercase text-[10px] md:text-xs tracking-widest border-b border-lux-gold pb-1 shadow-black drop-shadow-md text-right registerLink">
+                        <a href="${eventLinks[index]}" target="_blank">Register</a>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -247,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // --- FIX 3: Only reset and show success if it actually worked ---
                 document.getElementById('partnerForm').reset();
                 showToast("Registration Submitted Successfully!", "success");
-                document.getElementById("sumbitbutton").innerText="SUBMIT";
+                document.getElementById("sumbitbutton").innerText = "SUBMIT";
                 // alert("Message sent successfully!");
             } else {
                 showToast("Server error. Please try again.", "error");
@@ -354,8 +371,8 @@ document.addEventListener('DOMContentLoaded', () => {
             : 0;
     }
 
-    document.getElementById("sumbitbutton").addEventListener("click",()=>{
-        document.getElementById("sumbitbutton").innerText="*-*-*-*";
+    document.getElementById("sumbitbutton").addEventListener("click", () => {
+        document.getElementById("sumbitbutton").innerText = "*-*-*-*";
         validateAndSubmit();
     })
 
@@ -390,37 +407,104 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const footer = document.getElementById("footer");
-// const navbar = document.getElementById("navbar");
-const fab = document.getElementById("nav-fab");
+    // const navbar = document.getElementById("navbar");
+    const fab = document.getElementById("nav-fab");
 
-/* Mobile detection: Mobile = 1, Others = 0 */
-function isMobile() {
-  return /android|iphone|ipod|blackberry|iemobile|opera mini/i
-    .test(navigator.userAgent)
-    ? 1
-    : 0;
-}
+    /* Mobile detection: Mobile = 1, Others = 0 */
+    function isMobile() {
+        return /android|iphone|ipod|blackberry|iemobile|opera mini/i
+            .test(navigator.userAgent)
+            ? 1
+            : 0;
+    }
 
-/* Safety check */
-if (footer && navbar && fab) {
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting && isMobile() === 1) {
-        navbar.classList.add("nav-collapsed");
-        fab.classList.add("fab-visible");
-      } else {
-        navbar.classList.remove("nav-collapsed");
-        fab.classList.remove("fab-visible");
-      }
-    },
-    { threshold: 0.15 }
-  );
+    /* Safety check */
+    if (footer && navbar && fab) {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting && isMobile() === 1) {
+                    navbar.classList.add("nav-collapsed");
+                    fab.classList.add("fab-visible");
+                } else {
+                    navbar.classList.remove("nav-collapsed");
+                    fab.classList.remove("fab-visible");
+                }
+            },
+            { threshold: 0.15 }
+        );
 
-  observer.observe(footer);
+        observer.observe(footer);
 
-  fab.addEventListener("click", () => {
-    window.scrollTo({ top: document.getElementById("navbar").style.height, behavior: "smooth" });
-  });
-}
+        fab.addEventListener("click", () => {
+            window.scrollTo({ top: document.getElementById("navbar").style.height, behavior: "smooth" });
+        });
+    }
+
+    // ===== GALLERY LIGHTBOX LOGIC =====
+    const galleryImages = Array.from(
+        document.querySelectorAll('.image-carousel img')
+    );
+
+    // Remove duplicates caused by cloning
+    const uniqueImages = [...new Set(galleryImages.map(img => img.src))];
+
+    const lightbox = document.getElementById('galleryLightbox');
+    const lightboxImg = document.getElementById('lightboxImage');
+    const btnClose = document.getElementById('lightboxClose');
+    const btnPrev = document.getElementById('lightboxPrev');
+    const btnNext = document.getElementById('lightboxNext');
+
+    let currentIndex = 0;
+
+    // Open lightbox
+    galleryImages.forEach(img => {
+        img.style.cursor = "pointer";
+        img.addEventListener('click', () => {
+            currentIndex = uniqueImages.indexOf(img.src);
+            openLightbox();
+        });
+    });
+
+    function openLightbox() {
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        lightboxImg.src = uniqueImages[currentIndex];
+        document.body.classList.add('no-scroll');
+    }
+
+    function closeLightbox() {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.classList.remove('no-scroll');
+    }
+
+    // Navigation
+    btnNext.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % uniqueImages.length;
+        lightboxImg.src = uniqueImages[currentIndex];
+    });
+
+    btnPrev.addEventListener('click', () => {
+        currentIndex =
+            (currentIndex - 1 + uniqueImages.length) % uniqueImages.length;
+        lightboxImg.src = uniqueImages[currentIndex];
+    });
+
+    // Close actions
+    btnClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('hidden')) return;
+
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') btnNext.click();
+        if (e.key === 'ArrowLeft') btnPrev.click();
+    });
+
 
 });

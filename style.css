@@ -206,3 +206,12 @@ section[id] {
     margin: 0 10px;
     border-radius: 0.5rem;
 }
+
+#galleryLightbox button {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#galleryLightbox button:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
+}

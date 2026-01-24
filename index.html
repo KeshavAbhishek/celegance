@@ -149,8 +149,9 @@
                     array of cultural events. It provides students with an opportunity to interact, bond, and create
                     memories through fun games and activities, building connections that will be cherished for a
                     lifetime.
-                </p>
-                <p class="text-lg text-gray-300 leading-relaxed font-light text-justify">
+                    <br><br>
+                    <!-- </p>
+                <p class="text-lg text-gray-300 leading-relaxed font-light text-justify"> -->
                     This two-day extravaganza is packed with ecstatic performances, adrenaline-pumping competitions,
                     and joyful laughter echoing all around. The event’s buildup is nothing short of spectacular,
                     with teasers and trailers flooding social media, flash mobs introducing events across campus,
@@ -304,7 +305,8 @@
                         class="w-full bg-white/5 border border-white/10 rounded-lg px-6 py-4 text-white focus:outline-none focus:border-lux-gold focus:bg-white/10 transition-all placeholder-gray-500 resize-none"></textarea>
 
                     <button type="button"
-                        class="w-full bg-gradient-to-r from-lux-gold to-[#F3E5AB] text-black font-bold uppercase tracking-widest py-4 rounded-lg hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform active:scale-95" id="sumbitbutton">
+                        class="w-full bg-gradient-to-r from-lux-gold to-[#F3E5AB] text-black font-bold uppercase tracking-widest py-4 rounded-lg hover:scale-[1.01] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all transform active:scale-95"
+                        id="sumbitbutton">
                         Submit
                     </button>
                 </form>
@@ -348,9 +350,33 @@
          border border-white/30
          flex items-center justify-center
          opacity-0 scale-75 pointer-events-auto
-         transition-all duration-500 lg:scale-[1.25] lg:w-20 lg:h-20 lg:top-[40px] lg:right-10">
+         transition-all duration-500 lg:scale-[1.25] lg:w-20 lg:h-20 lg:bottom-[40px] lg:right-10">
         <img src="./src/ClogoWhite.png" class="" />
     </button>
+    <!-- GALLERY LIGHTBOX -->
+    <div id="galleryLightbox"
+        class="fixed inset-0 z-[10000] bg-black/90 backdrop-blur-md hidden items-center justify-center">
+
+        <!-- Close -->
+        <button id="lightboxClose" class="absolute top-6 right-6 text-white text-4xl font-bold">&times;</button>
+
+        <!-- Left -->
+        <button id="lightboxPrev" class="absolute left-6 md:left-12 text-white text-5xl select-none">
+            <i data-lucide="arrow-left-circle"
+                class="w-10 h-10 text-gray-300 group-hover:text-white transition-colors"></i>
+        </button>
+
+        <!-- Image -->
+        <img id="lightboxImage" class="max-h-[90vh] max-w-[90vw] object-contain rounded-xl shadow-2xl" />
+
+        <!-- Right -->
+        <button id="lightboxNext" class="absolute right-6 md:right-12 text-white text-5xl select-none">
+            <!-- &#10095; -->
+            <i data-lucide="arrow-right-circle"
+                class="w-10 h-10 text-gray-300 group-hover:text-white transition-colors "></i>
+        </button>
+    </div>
+
 
 
 
